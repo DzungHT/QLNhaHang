@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNhaHang", "QLNhaHang\QLNhaHang.csproj", "{51A777D8-C711-4DD5-B7CF-BAECDC187A82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.DatabaseScript", "01.DatabaseScript", "{69291198-5D02-4602-9990-CFDDC89244B9}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\My Documents\script.sql = ..\..\..\..\My Documents\script.sql
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManage", "..\..\..\DoanVD\ProjectWF\RestaurantManage\RestaurantManage\RestaurantManage.csproj", "{9D700BEB-8778-455F-878C-BFE987E01A25}"
 EndProject
