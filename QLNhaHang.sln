@@ -1,22 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNhaHang", "QLNhaHang\QLNhaHang.csproj", "{51A777D8-C711-4DD5-B7CF-BAECDC187A82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.DatabaseScript", "01.DatabaseScript", "{69291198-5D02-4602-9990-CFDDC89244B9}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\My Documents\script.sql = ..\..\..\..\My Documents\script.sql
+		..\..\..\My Documents\script.sql = ..\..\..\My Documents\script.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManage", "..\..\..\DoanVD\ProjectWF\RestaurantManage\RestaurantManage\RestaurantManage.csproj", "{9D700BEB-8778-455F-878C-BFE987E01A25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManage", "RestaurantManage\RestaurantManage\RestaurantManage.csproj", "{9D700BEB-8778-455F-878C-BFE987E01A25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\..\DoanVD\ProjectWF\RestaurantManage\Commons\Common.csproj", "{3C5CB51C-AC8E-4AF8-9D50-397BD2E0F74D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "RestaurantManage\Commons\Common.csproj", "{3C5CB51C-AC8E-4AF8-9D50-397BD2E0F74D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "..\..\..\DoanVD\ProjectWF\RestaurantManage\Controller\Controller.csproj", "{BC330C3C-60D8-4F0C-8F3C-97A5C07E6613}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "RestaurantManage\Controller\Controller.csproj", "{BC330C3C-60D8-4F0C-8F3C-97A5C07E6613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\..\..\DoanVD\ProjectWF\RestaurantManage\Object\Models.csproj", "{87BA95ED-494E-4803-882B-14B7445E8393}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "RestaurantManage\Object\Models.csproj", "{87BA95ED-494E-4803-882B-14B7445E8393}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

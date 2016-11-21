@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D700BEB-8778-455F-878C-BFE987E01A25}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RestaurantManage</RootNamespace>
+    <AssemblyName>RestaurantManage</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_View\UC_Footer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Footer.Designer.cs">
+      <DependentUpon>UC_Footer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Datmon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Datmon.Designer.cs">
+      <DependentUpon>UC_Goimon_Datmon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_DSMonan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_DSMonan.Designer.cs">
+      <DependentUpon>UC_Goimon_DSMonan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Inhoadon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Inhoadon.Designer.cs">
+      <DependentUpon>UC_Goimon_Inhoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Main.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Goimon_Main.Designer.cs">
+      <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Header.Designer.cs">
+      <DependentUpon>UC_Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlybanan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlybanan.Designer.cs">
+      <DependentUpon>UC_Quanlybanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlyhoadon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlyhoadon.Designer.cs">
+      <DependentUpon>UC_Quanlyhoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlykhachhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlykhachhang.Designer.cs">
+      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlykhuvuc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlykhuvuc.Designer.cs">
+      <DependentUpon>UC_Quanlykhuvuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlyloaimonan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlyloaimonan.Designer.cs">
+      <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlymonan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlymonan.Designer.cs">
+      <DependentUpon>UC_Quanlymonan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlynhanvien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_Quanlynhanvien.Designer.cs">
+      <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDialog.Designer.cs">
+      <DependentUpon>frmDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UC_View\UC_Goimon_Datmon.resx">
+      <DependentUpon>UC_Goimon_Datmon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Goimon_DSMonan.resx">
+      <DependentUpon>UC_Goimon_DSMonan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
+      <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
+      <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Common.csproj">
+      <Project>{3c5cb51c-ac8e-4af8-9d50-397bd2e0f74d}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{bc330c3c-60d8-4f0c-8f3c-97a5c07e6613}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Object\Models.csproj">
+      <Project>{87ba95ed-494e-4803-882b-14b7445e8393}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Search.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
