@@ -90,19 +90,20 @@ namespace RestaurantManage.UC_View
             }
             else
             {
-                lblThongbao.Visible = false;
-                if (_obj.LoaiMonAnID == 0)
-                {
-                    if (!sv.LoaiMonAn_Insert(_obj.TenLoaiMonAN, _obj.MoTa))
-                        MessageBox.Show("Thêm thất bại.");
-                    MessageBox.Show("Thêm thành công.");
-                }
-                else
-                {
-                    if (!sv.LoaiMonAn_Update(_obj.LoaiMonAnID, _obj.TenLoaiMonAN, _obj.MoTa))
-                        MessageBox.Show("Sửa thất bại");
-                    MessageBox.Show("Sửa thành công.");
-                }
+                MessageBox.Show(_obj.TenLoaiMonAN + "," + _obj.MoTa);
+                //lblThongbao.Visible = false;
+                //if (_obj.LoaiMonAnID == 0)
+                //{
+                //    if (!sv.LoaiMonAn_Insert(_obj.TenLoaiMonAN, _obj.MoTa))
+                //        MessageBox.Show("Thêm thất bại.");
+                //    MessageBox.Show("Thêm thành công.");
+                //}
+                //else
+                //{
+                //    if (!sv.LoaiMonAn_Update(_obj.LoaiMonAnID, _obj.TenLoaiMonAN, _obj.MoTa))
+                //        MessageBox.Show("Sửa thất bại");
+                //    MessageBox.Show("Sửa thành công.");
+                //}
             }
             _obj = new LoaiMonAn();
             this.HideText();

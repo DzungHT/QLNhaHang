@@ -59,6 +59,7 @@ namespace RestaurantServices.Business
             cmd.CommandText = "sp_LoaiMonAn_Insert";
             cmd.Parameters.Add(new SqlParameter("tenloaimonan", ten));
             cmd.Parameters.Add(new SqlParameter("mota", mota));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -66,7 +67,8 @@ namespace RestaurantServices.Business
             else
             {
                 return false;
-            }            
+            }
+            con.Close();            
         }
         public bool Update(int id,string ten, string mota)
         {

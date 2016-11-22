@@ -11,6 +11,7 @@ namespace RestaurantManage.Models
     class LoaiMonAn : INotifyPropertyChanged
     {
         public LoaiMonAn() { }
+        public LoaiMonAn(DataRow dr) { this.SetValues(dr); }
         int _LoaiMonAnID;
         string _TenLoaiMonAn;
         string _MoTa;
@@ -76,9 +77,9 @@ namespace RestaurantManage.Models
         {
             try
             {
-                this._LoaiMonAnID = dr["LoaiMonAnID"] != null ? (int)dr["LoaiMonAnID"] : 0;
-                this._TenLoaiMonAn = dr["TenLoaiMonAn"] != null ? dr["TenLoaiMonAn"].ToString() : null;
-                this._MoTa = dr["Mota"] != null ? dr["MoTa"].ToString() : null;
+                this._LoaiMonAnID = dr.Table.Columns.Contains("LoaiMonAnID") ? dr.Field<int>("LoaiMonAnID") : -1;
+                this._TenLoaiMonAn = dr.Table.Columns.Contains("TenLoaiMonAn") ? dr.Field<string>("TenLoaiMonAn") : null;
+                this._MoTa = dr.Table.Columns.Contains("MoTa") ? dr.Field<string>("MoTa") : null;
             }
             catch (Exception ex)
             {

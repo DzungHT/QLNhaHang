@@ -20,6 +20,7 @@ namespace RestaurantManage.Models
         }
 
         public MonAn() { }
+        public MonAn(DataRow dr) { this.SetValues(dr); }
         int _MonAnID;
         string _TenMonAn;
         string _DonViTinh;
@@ -144,13 +145,13 @@ namespace RestaurantManage.Models
         {
             try
             {
-                this._MonAnID = dr["MonAnID"] != null ? (int)dr["MonAnID"] : 0;
-                this._DonGia = dr["DonGia"] != null ? (int)dr["DonGia"] : 0;
-                this._LoaiMonAnID = dr["LoaiMonAnID"] != null ? (int)dr["LoaiMonAnID"] : 0;
-                this._SoLuongTon = dr["SoLuongTon"] != null ? (int)dr["SoLuongTon"] : 0;
-                this._TonToiThieu = dr["TonToiThieu"] != null ? dr["TonToiThieu"].ToString() : null;
-                this._TenMonAn = dr["TenMonAn"] != null ? dr["TenMonAn"].ToString() : null;
-                this._DonViTinh = dr["DonViTinh"] != null ? dr["DonViTinh"].ToString() : null;
+                this._MonAnID = dr.Table.Columns.Contains("MonAnID") ? dr.Field<int>("MonAnID") : -1;
+                this._DonGia = dr.Table.Columns.Contains("DonGia") ? dr.Field<int>("DonGia") : -1;
+                this._LoaiMonAnID = dr.Table.Columns.Contains("LoaiMonAnID") ? dr.Field<int>("LoaiMonAnID") : -1;
+                this._SoLuongTon = dr.Table.Columns.Contains("SoLuongTon") ? dr.Field<int>("SoLuongTon") : -1;
+                this._TonToiThieu = dr.Table.Columns.Contains("TonToiThieu") ? dr.Field<string>("TonToiThieu") : null;
+                this._TenMonAn = dr.Table.Columns.Contains("TenMonAn") ? dr.Field<string>("TenMonAn") : null;
+                this._DonViTinh = dr.Table.Columns.Contains("DonViTinh") ? dr.Field<string>("DonViTinh") : null;
             }
             catch (Exception ex)
             {
