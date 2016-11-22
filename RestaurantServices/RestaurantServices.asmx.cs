@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Services;
 using System.Data;
 using RestaurantServices.Business;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace RestaurantServices
 {
     /// <summary>
@@ -17,6 +20,7 @@ namespace RestaurantServices
     // [System.Web.Script.Services.ScriptService]
     public class RestaurantServices : System.Web.Services.WebService
     {
+        private string ConnectionString { get { return ConfigurationManager.ConnectionStrings["DataContext"].ConnectionString; } }
         #region HuyNQ
         [WebMethod]
         public DataTable GetAllNhanVien()
@@ -155,6 +159,166 @@ namespace RestaurantServices
         {
             AccountDAO acc = new AccountDAO();
             return acc.Login(username, password);
+        }
+        [WebMethod]
+        public DataTable Lay_BanAn(int khuVucBanAnID, int trangThaiID)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = @"SELECT ba.*, kv.TenKhuVuc, tt.TenTrangThai FROM BanAn ba INNER JOIN KhuVuc kv ON kv.KhuVucID = ba.KhuVucID INNER JOIN TrangThaiBanAn tt ON tt.TrangThaiID = ba.TrangThaiID ";
+            if (khuVucBanAnID != -1 && trangThaiID != -1)
+            {
+                sql += string.Format("WHERE ba.KhuVucID = {0} AND ba.TrangThaiID = {1}", khuVucBanAnID, trangThaiID);
+            }
+            else if (khuVucBanAnID != -1)
+            {
+                sql += string.Format("WHERE ba.KhuVucID = {0}", khuVucBanAnID);
+            }
+            else if (trangThaiID != -1)
+            {
+                sql += string.Format("WHERE ba.TrangThaiID = {0}", trangThaiID);
+            }
+
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "BanAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        [WebMethod]
+        public DataTable Lay_KhuVuc()
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT -1 AS KhuVucID, N'Tất cả' AS TenKhuVuc UNION ALL SELECT * FROM KhuVuc";
+
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "KhuVuc";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        [WebMethod]
+        public DataTable Lay_TrangThaiBanAn()
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT -1 AS TrangThaiID, N'Tất cả' AS TenTrangThai UNION ALL SELECT * FROM TrangThaiBanAn";
+
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "TrangThai";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        [WebMethod]
+        public DataTable Lay_LoaiMonAn()
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT -1 AS LoaiMonAnID, N'Tất cả' AS TenLoaiMonAn UNION ALL SELECT * FROM LoaiMonAn";
+
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "LoaiMonAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        [WebMethod]
+        public DataTable Lay_MonAn(int LoaiMonAnID)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT m.*, l.TenLoaiMonAn FROM MonAn m INNER JOIN LoaiMonAn l ON m.LoaiMonAnID = l.LoaiMonAnID";
+            if (LoaiMonAnID != -1)
+            {
+                sql += " WHERE m.LoaiMonAnID = " + LoaiMonAnID.ToString();
+            }
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "MonAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         #endregion
     }

@@ -190,6 +190,41 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> LoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_BanAn", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Lay_BanAn(int khuVucBanAnID, int trangThaiID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_BanAn", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Lay_BanAnAsync(int khuVucBanAnID, int trangThaiID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_KhuVuc", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Lay_KhuVuc();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_KhuVuc", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Lay_KhuVucAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_TrangThaiBanAn", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Lay_TrangThaiBanAn();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_TrangThaiBanAn", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Lay_TrangThaiBanAnAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_LoaiMonAn", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Lay_LoaiMonAn();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_LoaiMonAn", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Lay_LoaiMonAnAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_MonAn", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Lay_MonAn(int LoaiMonAnID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_MonAn", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> Lay_MonAnAsync(int LoaiMonAnID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -417,6 +452,46 @@ namespace RestaurantManage.RestaurantServices {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
+        }
+        
+        public System.Data.DataTable Lay_BanAn(int khuVucBanAnID, int trangThaiID) {
+            return base.Channel.Lay_BanAn(khuVucBanAnID, trangThaiID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Lay_BanAnAsync(int khuVucBanAnID, int trangThaiID) {
+            return base.Channel.Lay_BanAnAsync(khuVucBanAnID, trangThaiID);
+        }
+        
+        public System.Data.DataTable Lay_KhuVuc() {
+            return base.Channel.Lay_KhuVuc();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Lay_KhuVucAsync() {
+            return base.Channel.Lay_KhuVucAsync();
+        }
+        
+        public System.Data.DataTable Lay_TrangThaiBanAn() {
+            return base.Channel.Lay_TrangThaiBanAn();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Lay_TrangThaiBanAnAsync() {
+            return base.Channel.Lay_TrangThaiBanAnAsync();
+        }
+        
+        public System.Data.DataTable Lay_LoaiMonAn() {
+            return base.Channel.Lay_LoaiMonAn();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Lay_LoaiMonAnAsync() {
+            return base.Channel.Lay_LoaiMonAnAsync();
+        }
+        
+        public System.Data.DataTable Lay_MonAn(int LoaiMonAnID) {
+            return base.Channel.Lay_MonAn(LoaiMonAnID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> Lay_MonAnAsync(int LoaiMonAnID) {
+            return base.Channel.Lay_MonAnAsync(LoaiMonAnID);
         }
     }
 }

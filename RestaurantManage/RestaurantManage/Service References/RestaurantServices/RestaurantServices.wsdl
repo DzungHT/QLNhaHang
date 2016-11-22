@@ -415,6 +415,100 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Lay_BanAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="khuVucBanAnID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangThaiID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_BanAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_BanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_KhuVuc">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_KhuVucResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_KhuVucResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_TrangThaiBanAn">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_TrangThaiBanAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_TrangThaiBanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_LoaiMonAn">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_LoaiMonAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_LoaiMonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_MonAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoaiMonAnID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_MonAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_MonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetAllNhanVienSoapIn">
@@ -567,6 +661,36 @@
   <wsdl:message name="LoginSoapOut">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="Lay_BanAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_BanAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_BanAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_BanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_KhuVucSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_KhuVuc" />
+  </wsdl:message>
+  <wsdl:message name="Lay_KhuVucSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_KhuVucResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_TrangThaiBanAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_TrangThaiBanAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_TrangThaiBanAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_TrangThaiBanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_LoaiMonAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_LoaiMonAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_LoaiMonAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_LoaiMonAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_MonAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_MonAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_MonAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_MonAnResponse" />
+  </wsdl:message>
   <wsdl:portType name="RestaurantServicesSoap">
     <wsdl:operation name="GetAllNhanVien">
       <wsdl:input message="tns:GetAllNhanVienSoapIn" />
@@ -667,6 +791,26 @@
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <wsdl:input message="tns:Lay_BanAnSoapIn" />
+      <wsdl:output message="tns:Lay_BanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <wsdl:input message="tns:Lay_KhuVucSoapIn" />
+      <wsdl:output message="tns:Lay_KhuVucSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <wsdl:input message="tns:Lay_TrangThaiBanAnSoapIn" />
+      <wsdl:output message="tns:Lay_TrangThaiBanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <wsdl:input message="tns:Lay_LoaiMonAnSoapIn" />
+      <wsdl:output message="tns:Lay_LoaiMonAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <wsdl:input message="tns:Lay_MonAnSoapIn" />
+      <wsdl:output message="tns:Lay_MonAnSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RestaurantServicesSoap" type="tns:RestaurantServicesSoap">
@@ -896,6 +1040,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_BanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <soap:operation soapAction="http://tempuri.org/Lay_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_TrangThaiBanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_LoaiMonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_MonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RestaurantServicesSoap12" type="tns:RestaurantServicesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1117,6 +1306,51 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_BanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <soap12:operation soapAction="http://tempuri.org/Lay_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_TrangThaiBanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_LoaiMonAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_MonAn" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
