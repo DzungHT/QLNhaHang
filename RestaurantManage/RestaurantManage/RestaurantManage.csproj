@@ -62,12 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UC_View\UC_Footer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_View\UC_Footer.Designer.cs">
-      <DependentUpon>UC_Footer.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_View\UC_Goimon_Datmon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,12 +85,6 @@
     </Compile>
     <Compile Include="UC_View\UC_Goimon_Main.Designer.cs">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_View\UC_Header.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_View\UC_Header.Designer.cs">
-      <DependentUpon>UC_Header.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_View\UC_Quanlybanan.cs">
       <SubType>UserControl</SubType>
@@ -167,9 +155,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UC_View\UC_Footer.resx">
-      <DependentUpon>UC_Footer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Goimon_Datmon.resx">
       <DependentUpon>UC_Goimon_Datmon.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,9 +163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_View\UC_Header.resx">
-      <DependentUpon>UC_Header.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlykhachhang.resx">
       <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
