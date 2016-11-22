@@ -16,6 +16,13 @@ namespace RestaurantManage.RestaurantServices {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RestaurantServices.RestaurantServicesSoap")]
     public interface RestaurantServicesSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllNhanVien", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetAllNhanVien();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllNhanVien", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetAllNhanVienAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Login", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable Login(string username, string password);
@@ -49,6 +56,14 @@ namespace RestaurantManage.RestaurantServices {
         
         public RestaurantServicesSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Data.DataTable GetAllNhanVien() {
+            return base.Channel.GetAllNhanVien();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetAllNhanVienAsync() {
+            return base.Channel.GetAllNhanVienAsync();
         }
         
         public System.Data.DataTable Login(string username, string password) {

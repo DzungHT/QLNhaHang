@@ -84,8 +84,9 @@
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
+            this.nhânViênToolStripMenuItem.Click += new System.EventHandler(this.nhânViênToolStripMenuItem_Click);
             // 
             // thựcĐơnToolStripMenuItem
             // 
@@ -93,7 +94,7 @@
             this.loạiMónĂnToolStripMenuItem,
             this.mónĂnToolStripMenuItem});
             this.thựcĐơnToolStripMenuItem.Name = "thựcĐơnToolStripMenuItem";
-            this.thựcĐơnToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.thựcĐơnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.thựcĐơnToolStripMenuItem.Text = "Thực đơn";
             // 
             // loạiMónĂnToolStripMenuItem
@@ -114,7 +115,7 @@
             this.khuVựcBànĂnToolStripMenuItem,
             this.bănĂnToolStripMenuItem});
             this.bànĂnToolStripMenuItem.Name = "bànĂnToolStripMenuItem";
-            this.bànĂnToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.bànĂnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bànĂnToolStripMenuItem.Text = "Chỗ ngồi";
             // 
             // khuVựcBànĂnToolStripMenuItem

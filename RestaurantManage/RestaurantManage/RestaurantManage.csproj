@@ -98,11 +98,11 @@
     <Compile Include="UC_View\UC_Quanlyhoadon.Designer.cs">
       <DependentUpon>UC_Quanlyhoadon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlykhachhang.cs">
+    <Compile Include="UC_View\UC_QuanLyNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlykhachhang.Designer.cs">
-      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    <Compile Include="UC_View\UC_QuanLyNhanVien.Designer.cs">
+      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_View\UC_Quanlykhuvuc.cs">
       <SubType>UserControl</SubType>
@@ -122,11 +122,11 @@
     <Compile Include="UC_View\UC_Quanlymonan.Designer.cs">
       <DependentUpon>UC_Quanlymonan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlynhanvien.cs">
+    <Compile Include="UC_View\UC_QuanLyKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlynhanvien.Designer.cs">
-      <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    <Compile Include="UC_View\UC_QuanLyKhachHang.Designer.cs">
+      <DependentUpon>UC_QuanLyKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmDialog.cs">
       <SubType>Form</SubType>
@@ -164,11 +164,11 @@
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_View\UC_Quanlykhachhang.resx">
-      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    <EmbeddedResource Include="UC_View\UC_QuanLyNhanVien.resx">
+      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
-      <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    <EmbeddedResource Include="UC_View\UC_QuanLyKhachHang.resx">
+      <DependentUpon>UC_QuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

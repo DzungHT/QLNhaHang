@@ -41,5 +41,22 @@ namespace RestaurantServices.Business
                 return null;
             }
         }
+
+        public static DataTable GetAllAccount()
+        {
+            return new DataTable();
+        }
+        public static void Insert(string username, string password, int NhanVienID)
+        {
+            return;
+        }
+        public static void ChangePassword(string username, string password, int NhanVienID)
+        {
+            return;
+        }
+        public static void DeleteAccount(string username)
+        {
+            return;
+        }
     }
 }

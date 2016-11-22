@@ -7,35 +7,97 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RestaurantManage.Models;
 
 namespace RestaurantManage.UC_View
 {
-    public partial class UC_Quanlynhanvien : UserControl
+    public partial class UC_QuanLyNhanVien : UserControl
     {
-        private NhanVien _nv;
-        public UC_Quanlynhanvien()
+        private RestaurantServices.RestaurantServicesSoapClient serv = new RestaurantServices.RestaurantServicesSoapClient();
+        public UC_QuanLyNhanVien()
         {
             InitializeComponent();
-            _nv = new NhanVien() { NhanVienID = 1, HoTen = "Hoàng Trí Dũng", DiaChi = "ABC", Email = "Email" };
-            InitDataBinding();
+            try
+            {
+                dgvDS_Nhanvien.DataSource = serv.GetAllNhanVien();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void RefreshBoxInfo()
+        {
+            tbSodienthoai.Text = "";
+            radNam.Checked = radNu.Checked = false;
+            tbNhanVienID.Text = "";
+            tbHoten.Text = "";
+            tbEmail.Text = "";
+            tbDiachi.Text = "";
+            lblThongbao.Text = "";
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
         }
 
-        public void InitDataBinding()
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            Binding bind = new Binding("Text", _nv, "HoTen", true, DataSourceUpdateMode.OnPropertyChanged);
-            tbHoten.DataBindings.Add(bind);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void tbSodienthoai_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(_nv.HoTen + "|" + tbHoten.Text);
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void tbDiachi_TextChanged(object sender, EventArgs e)
         {
-            RestaurantServices.RestaurantServicesSoapClient res = new RestaurantServices.RestaurantServicesSoapClient();
-            DataTable dt = res.Login("admin","123468");
+
+        }
+
+        private void radNam_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbHoten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDS_Nhanvien_SelectionChanged(object sender, EventArgs e)
+        {
+            tbNhanVienID.Text = dgvDS_Nhanvien.CurrentRow.Cells[0].Value.ToString();
+            tbHoten.Text = dgvDS_Nhanvien.CurrentRow.Cells[1].Value.ToString();
+            tbSodienthoai.Text = dgvDS_Nhanvien.CurrentRow.Cells[2].Value.ToString();
+            tbDiachi.Text = dgvDS_Nhanvien.CurrentRow.Cells[3].Value.ToString();
+            tbEmail.Text = dgvDS_Nhanvien.CurrentRow.Cells[4].Value.ToString();
+            bool gt;
+            if(bool.TryParse(dgvDS_Nhanvien.CurrentRow.Cells[5].Value.ToString(), out gt))
+            {
+                if (gt == true)
+                {
+                    radNam.Checked = true;
+                    radNu.Checked = false;
+                }
+                else
+                {
+                    radNam.Checked = false;
+                    radNu.Checked = true;
+                }
+            }
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            lblThongbao.Text = "Xóa thành công!";
+            RefreshBoxInfo();
         }
     }
 }
