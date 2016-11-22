@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantManage.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,11 @@ using System.Windows.Forms;
 
 namespace RestaurantManage.View
 {
+    public delegate void callback(NhanVien nhanvien, string username);
     public partial class frmLogin : Form
     {
+        public event callback Callback;
+        private bool isLogin;
         public frmLogin()
         {
             InitializeComponent();
@@ -64,13 +68,24 @@ namespace RestaurantManage.View
         // Dang nhap
         private void Login()
         {
+            isLogin = false;
             if (CheckInput(tbTendangnhap.Text, tbMatkhau.Text))
             {
+                RestaurantServices.RestaurantServicesSoapClient serv = new RestaurantServices.RestaurantServicesSoapClient();
+                var dt = serv.Login(tbTendangnhap.Text, tbMatkhau.Text);
+                if (dt == null)
+                {
+                    lblThongbao.Text = "Đăng nhập sai!";
+                    lblThongbao.Visible = true;
+                    return;
+                }
+
+                isLogin = true;
                 lblThongbao.Visible = false;
-                frmMain _frmMain = new frmMain();
-                _frmMain.Show();
-                _frmMain.Activate();
-                this.Hide();
+                NhanVien nv = new NhanVien();
+                nv.SetValues(dt.Rows[0]);
+                this.Callback(nv, dt.Rows[0]["Username"].ToString());
+                this.Dispose();
             }
             else
             {
@@ -84,7 +99,16 @@ namespace RestaurantManage.View
             lblThongbao.Visible = false;
             tbMatkhau.Text = "";
             tbTendangnhap.Text = "";
+            tbTendangnhap.Focus();
         }
         #endregion
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isLogin)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
