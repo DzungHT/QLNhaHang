@@ -1,24 +1,114 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace RestaurantManage.Models
 {
    
-    public partial class NhanVien
+    public class NhanVien : INotifyPropertyChanged
     {
         public NhanVien()
         {
         }
+        int _NhanVienID;
+        string _HoTen;
+        string _SDT;
+        string _DiaChi;
+        string _Email;
 
-        public int NhanVienID { get; set; }
+        public int NhanVienID
+        {
+            get
+            {
+                return _NhanVienID;
+            }
 
-        public string HoTen { get; set; }
+            set
+            {
+                if (!value.Equals(_NhanVienID))
+                {
+                    _NhanVienID = value;
+                    OnPropertyChanged("NhanVienID");
+                }
+            }
+        }
 
-        public string SDT { get; set; }
+        public string HoTen
+        {
+            get
+            {
+                return _HoTen;
+            }
 
-        public string DiaChi { get; set; }
+            set
+            {
+                if (!value.Equals(_HoTen))
+                {
+                    _HoTen = value;
+                    OnPropertyChanged("HoTen");
+                }
+            }
+        }
 
-        public string Email { get; set; }
+        public string SDT
+        {
+            get
+            {
+                return _SDT;
+            }
 
+            set
+            {
+                if (!value.Equals(_SDT))
+                {
+                    _SDT = value;
+                    OnPropertyChanged("SDT");
+                }
+            }
+        }
+
+        public string DiaChi
+        {
+            get
+            {
+                return _DiaChi;
+            }
+
+            set
+            {
+                if (!value.Equals(_DiaChi))
+                {
+                    _DiaChi = value;
+                    OnPropertyChanged("DiaChi");
+                }
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return _Email;
+            }
+
+            set
+            {
+                if (!value.Equals(_Email))
+                {
+                    _Email = value;
+                    OnPropertyChanged("Email");
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string PropertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+            }
+        }
     }
 }
