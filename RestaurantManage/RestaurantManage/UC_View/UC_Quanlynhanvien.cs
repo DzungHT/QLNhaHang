@@ -16,11 +16,15 @@ namespace RestaurantManage.UC_View
         public UC_QuanLyNhanVien()
         {
             InitializeComponent();
+            ShowListNV();
+        }
+        private void ShowListNV()
+        {
             try
-            {
+            { 
                 dgvDS_Nhanvien.DataSource = serv.GetAllNhanVien();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -37,6 +41,26 @@ namespace RestaurantManage.UC_View
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            bool GioiTinh = (radNam.Checked ? true : false);
+            try
+            {
+                if (serv.InsertNhanVien(tbHoten.Text, tbSodienthoai.Text, tbDiachi.Text, tbEmail.Text, GioiTinh) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Insert thanh cong!";
+                    ShowListNV();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Insert that bai!";
+                    ShowListNV();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
@@ -96,8 +120,59 @@ namespace RestaurantManage.UC_View
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            lblThongbao.Text = "Xóa thành công!";
+            try
+            {
+                int NhanVienID = int.Parse(tbNhanVienID.Text.ToString());
+                if (serv.DeleteNhanVien(NhanVienID) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Delete thanh cong!";
+                    ShowListNV();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Delete that bai!";
+                    ShowListNV();
+
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            bool GioiTinh = (radNam.Checked ? true : false);
+            try
+            {
+                int NhanVienID = int.Parse(tbNhanVienID.Text.ToString());
+                if (serv.UpdateNhanVien(NhanVienID, tbHoten.Text, tbSodienthoai.Text, tbDiachi.Text, tbEmail.Text, GioiTinh) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Update thanh cong!";
+                    ShowListNV();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Update that bai!";
+                    ShowListNV();
+                   
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
             RefreshBoxInfo();
+            lblThongbao.Text = "Hủy thành công!";
         }
     }
 }

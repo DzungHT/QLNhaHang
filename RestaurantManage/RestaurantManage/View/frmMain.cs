@@ -32,9 +32,9 @@ namespace RestaurantManage.View
         public frmMain()
         {
             InitializeComponent();
-            //frmLogin login = new frmLogin();
-            //login.Callback += LoadStatusStrip;
-            //login.ShowDialog();
+            frmLogin login = new frmLogin();
+            login.Callback += LoadStatusStrip;
+            login.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,15 +62,48 @@ namespace RestaurantManage.View
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            //UC_View.UC_BanHang ucBanHang = new UC_View.UC_BanHang();
-            //panel1.Controls.Add(ucBanHang);
-            //ucBanHang.Dock = DockStyle.Fill;
+            UC_View.UC_BanHang ucBanHang = new UC_View.UC_BanHang();
+            ucBanHang.NhanVienID = NhanVien.NhanVienID;
+            panel1.Controls.Add(ucBanHang);
+            ucBanHang.Dock = DockStyle.Fill;
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
             UC_View.UC_QuanLyNhanVien uc = new UC_View.UC_QuanLyNhanVien();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void loạiMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlyloaimonan uc = new UC_View.UC_Quanlyloaimonan();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void mónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlymonan uc = new UC_View.UC_Quanlymonan();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void khuVựcBànĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlykhuvuc uc = new UC_View.UC_Quanlykhuvuc();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void bănĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlybanan uc = new UC_View.UC_Quanlybanan();
             panel1.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
         }

@@ -32,24 +32,52 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertNhanVien", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
+        int InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertNhanVien", ReplyAction="*")]
-        System.Threading.Tasks.Task InsertNhanVienAsync(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
+        System.Threading.Tasks.Task<int> InsertNhanVienAsync(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateNhanVien", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
+        int UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateNhanVien", ReplyAction="*")]
-        System.Threading.Tasks.Task UpdateNhanVienAsync(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
+        System.Threading.Tasks.Task<int> UpdateNhanVienAsync(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteNhanVien", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void DeleteNhanVien(int NhanVienID);
+        int DeleteNhanVien(int NhanVienID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteNhanVien", ReplyAction="*")]
-        System.Threading.Tasks.Task DeleteNhanVienAsync(int NhanVienID);
+        System.Threading.Tasks.Task<int> DeleteNhanVienAsync(int NhanVienID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllKhachHang", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetAllKhachHang();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllKhachHang", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetAllKhachHangAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertKhachHang", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int InsertKhachHang(string HoTen, string SDT, string DiaChi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertKhachHang", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> InsertKhachHangAsync(string HoTen, string SDT, string DiaChi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKhachHang", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int UpdateKhachHang(int KhachHangID, string HoTen, string SDT, string DiaChi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKhachHang", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> UpdateKhachHangAsync(int KhachHangID, string HoTen, string SDT, string DiaChi);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteKhachHang", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int DeleteKhachHang(int KhachHangID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteKhachHang", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> DeleteKhachHangAsync(int KhachHangID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllAccount", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -60,24 +88,24 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertAccount", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void InsertAccount(string username, string password, int NhanVienID);
+        int InsertAccount(string username, string password, int NhanVienID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertAccount", ReplyAction="*")]
-        System.Threading.Tasks.Task InsertAccountAsync(string username, string password, int NhanVienID);
+        System.Threading.Tasks.Task<int> InsertAccountAsync(string username, string password, int NhanVienID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePassword", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void ChangePassword(string username, string password, int NhanVienID);
+        int ChangePassword(string username, string password, int NhanVienID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePassword", ReplyAction="*")]
-        System.Threading.Tasks.Task ChangePasswordAsync(string username, string password, int NhanVienID);
+        System.Threading.Tasks.Task<int> ChangePasswordAsync(string username, string password, int NhanVienID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteAccount", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void DeleteAccount(string username);
+        int DeleteAccount(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteAccount", ReplyAction="*")]
-        System.Threading.Tasks.Task DeleteAccountAsync(string username);
+        System.Threading.Tasks.Task<int> DeleteAccountAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_LoaiMonAN", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -253,6 +281,71 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_MonAn", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> Lay_MonAnAsync(int LoaiMonAnID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_DanhSachDatBan", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet Lay_DanhSachDatBan(int BanID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Lay_DanhSachDatBan", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> Lay_DanhSachDatBanAsync(int BanID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GoiMon", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GoiMon(int BanAnID, int MonAnID, int SoLuong);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GoiMon", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GoiMonAsync(int BanAnID, int MonAnID, int SoLuong);
+        
+        // CODEGEN: Parameter 'KhachHangID' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ThanhToan", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        RestaurantManage.RestaurantServices.ThanhToanResponse ThanhToan(RestaurantManage.RestaurantServices.ThanhToanRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ThanhToan", ReplyAction="*")]
+        System.Threading.Tasks.Task<RestaurantManage.RestaurantServices.ThanhToanResponse> ThanhToanAsync(RestaurantManage.RestaurantServices.ThanhToanRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ThanhToan", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ThanhToanRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int DatBanID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int NhanVienID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> KhachHangID;
+        
+        public ThanhToanRequest() {
+        }
+        
+        public ThanhToanRequest(int DatBanID, int NhanVienID, System.Nullable<int> KhachHangID) {
+            this.DatBanID = DatBanID;
+            this.NhanVienID = NhanVienID;
+            this.KhachHangID = KhachHangID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ThanhToanResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ThanhToanResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable ThanhToanResult;
+        
+        public ThanhToanResponse() {
+        }
+        
+        public ThanhToanResponse(System.Data.DataTable ThanhToanResult) {
+            this.ThanhToanResult = ThanhToanResult;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -298,28 +391,60 @@ namespace RestaurantManage.RestaurantServices {
             return base.Channel.GetAllNhanVienAsync();
         }
         
-        public void InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
-            base.Channel.InsertNhanVien(HoTen, SDT, DiaChi, Email, GioiTinh);
+        public int InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
+            return base.Channel.InsertNhanVien(HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         
-        public System.Threading.Tasks.Task InsertNhanVienAsync(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
+        public System.Threading.Tasks.Task<int> InsertNhanVienAsync(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
             return base.Channel.InsertNhanVienAsync(HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         
-        public void UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
-            base.Channel.UpdateNhanVien(NhanVienID, HoTen, SDT, DiaChi, Email, GioiTinh);
+        public int UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
+            return base.Channel.UpdateNhanVien(NhanVienID, HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         
-        public System.Threading.Tasks.Task UpdateNhanVienAsync(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
+        public System.Threading.Tasks.Task<int> UpdateNhanVienAsync(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh) {
             return base.Channel.UpdateNhanVienAsync(NhanVienID, HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         
-        public void DeleteNhanVien(int NhanVienID) {
-            base.Channel.DeleteNhanVien(NhanVienID);
+        public int DeleteNhanVien(int NhanVienID) {
+            return base.Channel.DeleteNhanVien(NhanVienID);
         }
         
-        public System.Threading.Tasks.Task DeleteNhanVienAsync(int NhanVienID) {
+        public System.Threading.Tasks.Task<int> DeleteNhanVienAsync(int NhanVienID) {
             return base.Channel.DeleteNhanVienAsync(NhanVienID);
+        }
+        
+        public System.Data.DataTable GetAllKhachHang() {
+            return base.Channel.GetAllKhachHang();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetAllKhachHangAsync() {
+            return base.Channel.GetAllKhachHangAsync();
+        }
+        
+        public int InsertKhachHang(string HoTen, string SDT, string DiaChi) {
+            return base.Channel.InsertKhachHang(HoTen, SDT, DiaChi);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertKhachHangAsync(string HoTen, string SDT, string DiaChi) {
+            return base.Channel.InsertKhachHangAsync(HoTen, SDT, DiaChi);
+        }
+        
+        public int UpdateKhachHang(int KhachHangID, string HoTen, string SDT, string DiaChi) {
+            return base.Channel.UpdateKhachHang(KhachHangID, HoTen, SDT, DiaChi);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateKhachHangAsync(int KhachHangID, string HoTen, string SDT, string DiaChi) {
+            return base.Channel.UpdateKhachHangAsync(KhachHangID, HoTen, SDT, DiaChi);
+        }
+        
+        public int DeleteKhachHang(int KhachHangID) {
+            return base.Channel.DeleteKhachHang(KhachHangID);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteKhachHangAsync(int KhachHangID) {
+            return base.Channel.DeleteKhachHangAsync(KhachHangID);
         }
         
         public System.Data.DataTable GetAllAccount() {
@@ -330,27 +455,27 @@ namespace RestaurantManage.RestaurantServices {
             return base.Channel.GetAllAccountAsync();
         }
         
-        public void InsertAccount(string username, string password, int NhanVienID) {
-            base.Channel.InsertAccount(username, password, NhanVienID);
+        public int InsertAccount(string username, string password, int NhanVienID) {
+            return base.Channel.InsertAccount(username, password, NhanVienID);
         }
         
-        public System.Threading.Tasks.Task InsertAccountAsync(string username, string password, int NhanVienID) {
+        public System.Threading.Tasks.Task<int> InsertAccountAsync(string username, string password, int NhanVienID) {
             return base.Channel.InsertAccountAsync(username, password, NhanVienID);
         }
         
-        public void ChangePassword(string username, string password, int NhanVienID) {
-            base.Channel.ChangePassword(username, password, NhanVienID);
+        public int ChangePassword(string username, string password, int NhanVienID) {
+            return base.Channel.ChangePassword(username, password, NhanVienID);
         }
         
-        public System.Threading.Tasks.Task ChangePasswordAsync(string username, string password, int NhanVienID) {
+        public System.Threading.Tasks.Task<int> ChangePasswordAsync(string username, string password, int NhanVienID) {
             return base.Channel.ChangePasswordAsync(username, password, NhanVienID);
         }
         
-        public void DeleteAccount(string username) {
-            base.Channel.DeleteAccount(username);
+        public int DeleteAccount(string username) {
+            return base.Channel.DeleteAccount(username);
         }
         
-        public System.Threading.Tasks.Task DeleteAccountAsync(string username) {
+        public System.Threading.Tasks.Task<int> DeleteAccountAsync(string username) {
             return base.Channel.DeleteAccountAsync(username);
         }
         
@@ -552,6 +677,49 @@ namespace RestaurantManage.RestaurantServices {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> Lay_MonAnAsync(int LoaiMonAnID) {
             return base.Channel.Lay_MonAnAsync(LoaiMonAnID);
+        }
+        
+        public System.Data.DataSet Lay_DanhSachDatBan(int BanID) {
+            return base.Channel.Lay_DanhSachDatBan(BanID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> Lay_DanhSachDatBanAsync(int BanID) {
+            return base.Channel.Lay_DanhSachDatBanAsync(BanID);
+        }
+        
+        public System.Data.DataTable GoiMon(int BanAnID, int MonAnID, int SoLuong) {
+            return base.Channel.GoiMon(BanAnID, MonAnID, SoLuong);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GoiMonAsync(int BanAnID, int MonAnID, int SoLuong) {
+            return base.Channel.GoiMonAsync(BanAnID, MonAnID, SoLuong);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RestaurantManage.RestaurantServices.ThanhToanResponse RestaurantManage.RestaurantServices.RestaurantServicesSoap.ThanhToan(RestaurantManage.RestaurantServices.ThanhToanRequest request) {
+            return base.Channel.ThanhToan(request);
+        }
+        
+        public System.Data.DataTable ThanhToan(int DatBanID, int NhanVienID, System.Nullable<int> KhachHangID) {
+            RestaurantManage.RestaurantServices.ThanhToanRequest inValue = new RestaurantManage.RestaurantServices.ThanhToanRequest();
+            inValue.DatBanID = DatBanID;
+            inValue.NhanVienID = NhanVienID;
+            inValue.KhachHangID = KhachHangID;
+            RestaurantManage.RestaurantServices.ThanhToanResponse retVal = ((RestaurantManage.RestaurantServices.RestaurantServicesSoap)(this)).ThanhToan(inValue);
+            return retVal.ThanhToanResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<RestaurantManage.RestaurantServices.ThanhToanResponse> RestaurantManage.RestaurantServices.RestaurantServicesSoap.ThanhToanAsync(RestaurantManage.RestaurantServices.ThanhToanRequest request) {
+            return base.Channel.ThanhToanAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<RestaurantManage.RestaurantServices.ThanhToanResponse> ThanhToanAsync(int DatBanID, int NhanVienID, System.Nullable<int> KhachHangID) {
+            RestaurantManage.RestaurantServices.ThanhToanRequest inValue = new RestaurantManage.RestaurantServices.ThanhToanRequest();
+            inValue.DatBanID = DatBanID;
+            inValue.NhanVienID = NhanVienID;
+            inValue.KhachHangID = KhachHangID;
+            return ((RestaurantManage.RestaurantServices.RestaurantServicesSoap)(this)).ThanhToanAsync(inValue);
         }
     }
 }

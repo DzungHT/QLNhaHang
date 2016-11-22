@@ -60,6 +60,8 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietDatBan.cs" />
+    <Compile Include="Models\DatBan.cs" />
     <Compile Include="Models\LoaiMonAn.cs" />
     <Compile Include="Models\MonAn.cs" />
     <Compile Include="Models\BanAn.cs" />
@@ -101,6 +103,12 @@
     </Compile>
     <Compile Include="UC_View\UC_Goimon_Main.Designer.cs">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_View\UC_QuanLyAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_QuanLyAccount.Designer.cs">
+      <DependentUpon>UC_QuanLyAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_View\UC_Quanlybanan.cs">
       <SubType>UserControl</SubType>
@@ -186,6 +194,9 @@
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_QuanLyAccount.resx">
+      <DependentUpon>UC_QuanLyAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlyloaimonan.resx">
       <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +215,7 @@
     <EmbeddedResource Include="View\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,6 +226,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\RestaurantServices\RestaurantManage.RestaurantServices.ThanhToanResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RestaurantServices\RestaurantServices.wsdl" />
   </ItemGroup>
   <ItemGroup>
