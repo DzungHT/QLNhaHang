@@ -63,6 +63,8 @@ namespace RestaurantManage.UC_View
             }
 
             int a = serv.InsertAccount(tbUsername.Text, tbPassword.Text, NhanVienID);
+            RefreshBoxInfo();
+            lblThongbao.Text = "Thêm Account thành công!";
         }
 
         private void dgvDS_Nhanvien_SelectionChanged(object sender, EventArgs e)

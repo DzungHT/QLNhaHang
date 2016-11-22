@@ -107,6 +107,20 @@ namespace RestaurantManage.RestaurantServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteAccount", ReplyAction="*")]
         System.Threading.Tasks.Task<int> DeleteAccountAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllHoaDon", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetAllHoaDon();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllHoaDon", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetAllHoaDonAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetChiTietHoaDon", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetChiTietHoaDon(int HoaDonID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetChiTietHoaDon", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetChiTietHoaDonAsync(int HoaDonID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_LoaiMonAN", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataTable DS_LoaiMonAN(string st, string sc, bool iss);
@@ -477,6 +491,22 @@ namespace RestaurantManage.RestaurantServices {
         
         public System.Threading.Tasks.Task<int> DeleteAccountAsync(string username) {
             return base.Channel.DeleteAccountAsync(username);
+        }
+        
+        public System.Data.DataTable GetAllHoaDon() {
+            return base.Channel.GetAllHoaDon();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetAllHoaDonAsync() {
+            return base.Channel.GetAllHoaDonAsync();
+        }
+        
+        public System.Data.DataTable GetChiTietHoaDon(int HoaDonID) {
+            return base.Channel.GetChiTietHoaDon(HoaDonID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetChiTietHoaDonAsync(int HoaDonID) {
+            return base.Channel.GetChiTietHoaDonAsync(HoaDonID);
         }
         
         public System.Data.DataTable DS_LoaiMonAN(string st, string sc, bool iss) {

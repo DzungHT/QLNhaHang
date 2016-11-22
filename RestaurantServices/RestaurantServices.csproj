@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Business\AccountDAO.cs" />
     <Compile Include="Business\BanAnDAO.cs" />
+    <Compile Include="Business\HoaDonDAO.cs" />
     <Compile Include="Business\KhachHangDAO.cs" />
     <Compile Include="Business\KhuVucDAO.cs" />
     <Compile Include="Business\LoaiMonAnDAO.cs" />

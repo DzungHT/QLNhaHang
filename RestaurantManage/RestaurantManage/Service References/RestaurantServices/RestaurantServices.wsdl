@@ -219,6 +219,44 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAllHoaDon">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllHoaDonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllHoaDonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChiTietHoaDon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HoaDonID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChiTietHoaDonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChiTietHoaDonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="DS_LoaiMonAN">
         <s:complexType>
           <s:sequence>
@@ -828,6 +866,18 @@
   <wsdl:message name="DeleteAccountSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAllHoaDonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllHoaDon" />
+  </wsdl:message>
+  <wsdl:message name="GetAllHoaDonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllHoaDonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChiTietHoaDonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChiTietHoaDon" />
+  </wsdl:message>
+  <wsdl:message name="GetChiTietHoaDonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChiTietHoaDonResponse" />
+  </wsdl:message>
   <wsdl:message name="DS_LoaiMonANSoapIn">
     <wsdl:part name="parameters" element="tns:DS_LoaiMonAN" />
   </wsdl:message>
@@ -1048,6 +1098,14 @@
     <wsdl:operation name="DeleteAccount">
       <wsdl:input message="tns:DeleteAccountSoapIn" />
       <wsdl:output message="tns:DeleteAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHoaDon">
+      <wsdl:input message="tns:GetAllHoaDonSoapIn" />
+      <wsdl:output message="tns:GetAllHoaDonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChiTietHoaDon">
+      <wsdl:input message="tns:GetChiTietHoaDonSoapIn" />
+      <wsdl:output message="tns:GetChiTietHoaDonSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="DS_LoaiMonAN">
       <wsdl:input message="tns:DS_LoaiMonANSoapIn" />
@@ -1274,6 +1332,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAccount">
       <soap:operation soapAction="http://tempuri.org/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHoaDon">
+      <soap:operation soapAction="http://tempuri.org/GetAllHoaDon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChiTietHoaDon">
+      <soap:operation soapAction="http://tempuri.org/GetChiTietHoaDon" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1646,6 +1722,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAccount">
       <soap12:operation soapAction="http://tempuri.org/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllHoaDon">
+      <soap12:operation soapAction="http://tempuri.org/GetAllHoaDon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChiTietHoaDon">
+      <soap12:operation soapAction="http://tempuri.org/GetChiTietHoaDon" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

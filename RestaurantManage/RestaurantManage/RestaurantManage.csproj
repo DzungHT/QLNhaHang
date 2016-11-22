@@ -80,6 +80,12 @@
     <Compile Include="UC_View\UC_BanHang.Designer.cs">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_View\UC_DoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_View\UC_DoiMatKhau.Designer.cs">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC_View\UC_Goimon_Datmon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     <EmbeddedResource Include="UC_View\UC_BanHang.resx">
       <DependentUpon>UC_BanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_DoiMatKhau.resx">
+      <DependentUpon>UC_DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Goimon_Datmon.resx">
       <DependentUpon>UC_Goimon_Datmon.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_QuanLyAccount.resx">
       <DependentUpon>UC_QuanLyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Quanlyhoadon.resx">
+      <DependentUpon>UC_Quanlyhoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlyloaimonan.resx">
       <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>

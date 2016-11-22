@@ -88,6 +88,16 @@ namespace RestaurantServices
         {
             return AccountDAO.Delete(username);
         }
+        [WebMethod]
+        public DataTable GetAllHoaDon()
+        {
+            return HoaDonDAO.GetAllHoaDon();
+        }
+        [WebMethod]
+        public DataTable GetChiTietHoaDon(int HoaDonID)
+        {
+            return HoaDonDAO.GetChiTietHoaDon(HoaDonID);
+        }
         #endregion
         #region DoanVD
         LoaiMonAnDAO _LoaiMonAnDAO = new LoaiMonAnDAO();
