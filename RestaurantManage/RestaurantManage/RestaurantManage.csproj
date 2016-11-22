@@ -167,6 +167,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UC_View\UC_Footer.resx">
+      <DependentUpon>UC_Footer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Goimon_Datmon.resx">
       <DependentUpon>UC_Goimon_Datmon.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Header.resx">
+      <DependentUpon>UC_Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Quanlykhachhang.resx">
+      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
       <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
