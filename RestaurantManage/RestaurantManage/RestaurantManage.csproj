@@ -60,6 +60,8 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietDatBan.cs" />
+    <Compile Include="Models\DatBan.cs" />
     <Compile Include="Models\LoaiMonAn.cs" />
     <Compile Include="Models\MonAn.cs" />
     <Compile Include="Models\BanAn.cs" />
