@@ -53,7 +53,11 @@
         </s:complexType>
       </s:element>
       <s:element name="InsertNhanVienResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertNhanVienResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="UpdateNhanVien">
         <s:complexType>
@@ -68,7 +72,11 @@
         </s:complexType>
       </s:element>
       <s:element name="UpdateNhanVienResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateNhanVienResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="DeleteNhanVien">
         <s:complexType>
@@ -78,7 +86,75 @@
         </s:complexType>
       </s:element>
       <s:element name="DeleteNhanVienResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteNhanVienResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllKhachHang">
         <s:complexType />
+      </s:element>
+      <s:element name="GetAllKhachHangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllKhachHangResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertKhachHang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HoTen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertKhachHangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertKhachHangResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateKhachHang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KhachHangID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="HoTen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateKhachHangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateKhachHangResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteKhachHang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KhachHangID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteKhachHangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteKhachHangResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="GetAllAccount">
         <s:complexType />
@@ -107,7 +183,11 @@
         </s:complexType>
       </s:element>
       <s:element name="InsertAccountResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="ChangePassword">
         <s:complexType>
@@ -119,7 +199,11 @@
         </s:complexType>
       </s:element>
       <s:element name="ChangePasswordResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePasswordResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="DeleteAccount">
         <s:complexType>
@@ -129,7 +213,11 @@
         </s:complexType>
       </s:element>
       <s:element name="DeleteAccountResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="DS_LoaiMonAN">
         <s:complexType>
@@ -593,6 +681,73 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Lay_DanhSachDatBan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BanID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_DanhSachDatBanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_DanhSachDatBanResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoiMon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BanAnID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MonAnID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SoLuong" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoiMonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoiMonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThanhToan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DatBanID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NhanVienID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="KhachHangID" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThanhToanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ThanhToanResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LoginSoapIn">
@@ -624,6 +779,30 @@
   </wsdl:message>
   <wsdl:message name="DeleteNhanVienSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteNhanVienResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllKhachHangSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllKhachHang" />
+  </wsdl:message>
+  <wsdl:message name="GetAllKhachHangSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllKhachHangResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertKhachHangSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertKhachHang" />
+  </wsdl:message>
+  <wsdl:message name="InsertKhachHangSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertKhachHangResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateKhachHangSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateKhachHang" />
+  </wsdl:message>
+  <wsdl:message name="UpdateKhachHangSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateKhachHangResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteKhachHangSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteKhachHang" />
+  </wsdl:message>
+  <wsdl:message name="DeleteKhachHangSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteKhachHangResponse" />
   </wsdl:message>
   <wsdl:message name="GetAllAccountSoapIn">
     <wsdl:part name="parameters" element="tns:GetAllAccount" />
@@ -799,6 +978,24 @@
   <wsdl:message name="Lay_MonAnSoapOut">
     <wsdl:part name="parameters" element="tns:Lay_MonAnResponse" />
   </wsdl:message>
+  <wsdl:message name="Lay_DanhSachDatBanSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_DanhSachDatBan" />
+  </wsdl:message>
+  <wsdl:message name="Lay_DanhSachDatBanSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_DanhSachDatBanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoiMonSoapIn">
+    <wsdl:part name="parameters" element="tns:GoiMon" />
+  </wsdl:message>
+  <wsdl:message name="GoiMonSoapOut">
+    <wsdl:part name="parameters" element="tns:GoiMonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ThanhToanSoapIn">
+    <wsdl:part name="parameters" element="tns:ThanhToan" />
+  </wsdl:message>
+  <wsdl:message name="ThanhToanSoapOut">
+    <wsdl:part name="parameters" element="tns:ThanhToanResponse" />
+  </wsdl:message>
   <wsdl:portType name="RestaurantServicesSoap">
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
@@ -819,6 +1016,22 @@
     <wsdl:operation name="DeleteNhanVien">
       <wsdl:input message="tns:DeleteNhanVienSoapIn" />
       <wsdl:output message="tns:DeleteNhanVienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllKhachHang">
+      <wsdl:input message="tns:GetAllKhachHangSoapIn" />
+      <wsdl:output message="tns:GetAllKhachHangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertKhachHang">
+      <wsdl:input message="tns:InsertKhachHangSoapIn" />
+      <wsdl:output message="tns:InsertKhachHangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKhachHang">
+      <wsdl:input message="tns:UpdateKhachHangSoapIn" />
+      <wsdl:output message="tns:UpdateKhachHangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKhachHang">
+      <wsdl:input message="tns:DeleteKhachHangSoapIn" />
+      <wsdl:output message="tns:DeleteKhachHangSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAllAccount">
       <wsdl:input message="tns:GetAllAccountSoapIn" />
@@ -936,6 +1149,18 @@
       <wsdl:input message="tns:Lay_MonAnSoapIn" />
       <wsdl:output message="tns:Lay_MonAnSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="Lay_DanhSachDatBan">
+      <wsdl:input message="tns:Lay_DanhSachDatBanSoapIn" />
+      <wsdl:output message="tns:Lay_DanhSachDatBanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoiMon">
+      <wsdl:input message="tns:GoiMonSoapIn" />
+      <wsdl:output message="tns:GoiMonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThanhToan">
+      <wsdl:input message="tns:ThanhToanSoapIn" />
+      <wsdl:output message="tns:ThanhToanSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RestaurantServicesSoap" type="tns:RestaurantServicesSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -977,6 +1202,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteNhanVien">
       <soap:operation soapAction="http://tempuri.org/DeleteNhanVien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllKhachHang">
+      <soap:operation soapAction="http://tempuri.org/GetAllKhachHang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertKhachHang">
+      <soap:operation soapAction="http://tempuri.org/InsertKhachHang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKhachHang">
+      <soap:operation soapAction="http://tempuri.org/UpdateKhachHang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKhachHang">
+      <soap:operation soapAction="http://tempuri.org/DeleteKhachHang" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1245,6 +1506,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Lay_DanhSachDatBan">
+      <soap:operation soapAction="http://tempuri.org/Lay_DanhSachDatBan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoiMon">
+      <soap:operation soapAction="http://tempuri.org/GoiMon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThanhToan">
+      <soap:operation soapAction="http://tempuri.org/ThanhToan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RestaurantServicesSoap12" type="tns:RestaurantServicesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1286,6 +1574,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteNhanVien">
       <soap12:operation soapAction="http://tempuri.org/DeleteNhanVien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllKhachHang">
+      <soap12:operation soapAction="http://tempuri.org/GetAllKhachHang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertKhachHang">
+      <soap12:operation soapAction="http://tempuri.org/InsertKhachHang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKhachHang">
+      <soap12:operation soapAction="http://tempuri.org/UpdateKhachHang" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKhachHang">
+      <soap12:operation soapAction="http://tempuri.org/DeleteKhachHang" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1547,6 +1871,33 @@
     </wsdl:operation>
     <wsdl:operation name="Lay_MonAn">
       <soap12:operation soapAction="http://tempuri.org/Lay_MonAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_DanhSachDatBan">
+      <soap12:operation soapAction="http://tempuri.org/Lay_DanhSachDatBan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoiMon">
+      <soap12:operation soapAction="http://tempuri.org/GoiMon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThanhToan">
+      <soap12:operation soapAction="http://tempuri.org/ThanhToan" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

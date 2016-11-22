@@ -34,19 +34,39 @@ namespace RestaurantServices
             return NhanVienDAO.GetAllNhanVien();
         }
         [WebMethod]
-        public void InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
+        public int InsertNhanVien(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
         {
-            NhanVienDAO.Insert(HoTen, SDT, DiaChi, Email, GioiTinh);
+            return NhanVienDAO.Insert(HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         [WebMethod]
-        public void UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
+        public int UpdateNhanVien(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
         {
-            NhanVienDAO.Update(NhanVienID, HoTen, SDT, DiaChi, Email, GioiTinh);
+            return NhanVienDAO.Update(NhanVienID, HoTen, SDT, DiaChi, Email, GioiTinh);
         }
         [WebMethod]
-        public void DeleteNhanVien(int NhanVienID)
+        public int DeleteNhanVien(int NhanVienID)
         {
-            NhanVienDAO.Delete(NhanVienID);
+            return NhanVienDAO.Delete(NhanVienID);
+        }
+        [WebMethod]
+        public DataTable GetAllKhachHang()
+        {
+            return KhachHangDAO.GetAllKhachHang();
+        }
+        [WebMethod]
+        public int InsertKhachHang(string HoTen, string SDT, string DiaChi)
+        {
+            return KhachHangDAO.Insert(HoTen, SDT, DiaChi);
+        }
+        [WebMethod]
+        public int UpdateKhachHang(int KhachHangID, string HoTen, string SDT, string DiaChi)
+        {
+            return KhachHangDAO.Update(KhachHangID, HoTen, SDT, DiaChi);
+        }
+        [WebMethod]
+        public int DeleteKhachHang(int KhachHangID)
+        {
+            return KhachHangDAO.Delete(KhachHangID);
         }
         [WebMethod]
         public DataTable GetAllAccount()
@@ -54,19 +74,19 @@ namespace RestaurantServices
             return AccountDAO.GetAllAccount();
         }
         [WebMethod]
-        public void InsertAccount(string username, string password, int NhanVienID)
+        public int InsertAccount(string username, string password, int NhanVienID)
         {
-            AccountDAO.Insert(username, password, NhanVienID);
+            return AccountDAO.Insert(username, password, NhanVienID);
         }
         [WebMethod]
-        public void ChangePassword(string username, string password, int NhanVienID)
+        public int ChangePassword(string username, string password, int NhanVienID)
         {
-            AccountDAO.ChangePassword(username, password, NhanVienID);
+            return AccountDAO.ChangePassword(username, password, NhanVienID);
         }
         [WebMethod]
-        public void DeleteAccount(string username)
+        public int DeleteAccount(string username)
         {
-            AccountDAO.Delete(username);
+            return AccountDAO.Delete(username);
         }
         #endregion
         #region DoanVD
@@ -404,7 +424,7 @@ namespace RestaurantServices
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con;
-            string sql = "SELECT m.*, l.TenLoaiMonAn FROM MonAn m INNER JOIN LoaiMonAn l ON m.LoaiMonAnID = l.LoaiMonAnID";
+            string sql = "SELECT m.MonanID, m.TenMonAn, m.DonViTinh, m.DonGia*1000 as DonGia,m.LoaiMonAnID, l.TenLoaiMonAn FROM MonAn m INNER JOIN LoaiMonAn l ON m.LoaiMonAnID = l.LoaiMonAnID";
             if (LoaiMonAnID != -1)
             {
                 sql += " WHERE m.LoaiMonAnID = " + LoaiMonAnID.ToString();
@@ -417,6 +437,97 @@ namespace RestaurantServices
                 con.Open();
                 da.Fill(dt);
                 dt.TableName = "MonAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        [WebMethod]
+        public DataSet Lay_DanhSachDatBan(int BanID)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT * FROM DatBan db WHERE db.BanAnID = {0} AND db.NgayDatBan = (SELECT MAX(db2.NgayDatBan) FROM DatBan db2 WHERE db2.BanAnID = {0}) SELECT ct.DatBanID, ct.MonAnID, ct.SoLuong, ma.TenMonAn, ma.DonGia FROM ChiTietDatBan ct INNER JOIN MonAn ma ON ma.MonanID = ct.MonAnID WHERE ct.DatBanID = (SELECT db.DatBanID FROM DatBan db WHERE db.BanAnID = {0} AND db.NgayDatBan = (SELECT MAX(db2.NgayDatBan) FROM DatBan db2 WHERE db2.BanAnID = {0}))";
+
+            cmd.CommandText = string.Format(sql, BanID);
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                con.Open();
+                da.Fill(ds);
+                ds.Tables[0].TableName = "DatBan";
+                ds.Tables[1].TableName = "ChiTietDatBan";
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        [WebMethod]
+        public DataTable GoiMon(int BanAnID, int MonAnID, int SoLuong)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
+            cmd.CommandText = "sp_GoiMon";
+            cmd.Parameters.Add(new SqlParameter("BanAnID", BanAnID));
+            cmd.Parameters.Add(new SqlParameter("MonAnID", MonAnID));
+            cmd.Parameters.Add(new SqlParameter("SoLuong", SoLuong));
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "KetQua";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        [WebMethod]
+        public DataTable ThanhToan(int DatBanID, int NhanVienID, int? KhachHangID = null)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
+            cmd.CommandText = "sp_ThanhToan";
+            cmd.Parameters.Add(new SqlParameter("DatBanID", DatBanID));
+            cmd.Parameters.Add(new SqlParameter("NhanVienID", NhanVienID));
+            cmd.Parameters.Add(new SqlParameter("KhachHangID", KhachHangID));
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "KetQua";
                 return dt;
             }
             catch (Exception ex)

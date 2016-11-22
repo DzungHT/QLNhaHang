@@ -8,19 +8,18 @@ using System.Web;
 
 namespace RestaurantServices.Business
 {
-    public class NhanVienDAO
+    public class KhachHangDAO
     {
         private static string ConnectionString { get { return ConfigurationManager.ConnectionStrings["DataContext"].ConnectionString; } }
-        
-        public static DataTable GetAllNhanVien()
+        public static DataTable GetAllKhachHang()
         {
-            string cmdText = "SELECT * FROM NhanVien";
+            string cmdText = "SELECT * FROM KhachHang";
             SqlConnection con = new SqlConnection(ConnectionString);
-            SqlDataAdapter da = new SqlDataAdapter(cmdText,con);
+            SqlDataAdapter da = new SqlDataAdapter(cmdText, con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dt.TableName = "dt";
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 return dt;
             }
@@ -30,14 +29,12 @@ namespace RestaurantServices.Business
             }
 
         }
-        public static int Insert(string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
+        public static int Insert(string HoTen, string SDT, string DiaChi)
         {
-            string cmdText = "INSERT INTO NhanVien VALUES("
-                          +"N'"+HoTen+"', "
-                          +"N'" +SDT+"', "
-                          +"N'" + DiaChi + "', "
-                          +"'" + Email + "', "
-                          + "'" + GioiTinh + "'"
+            string cmdText = "INSERT INTO KhachHang VALUES("
+                          + "N'" + HoTen + "', "
+                          + "N'" + SDT + "', "
+                          + "N'" + DiaChi + "' "
                          + ")";
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
@@ -47,15 +44,13 @@ namespace RestaurantServices.Business
             con.Close();
             return a;
         }
-        public static int Update(int NhanVienID, string HoTen, string SDT, string DiaChi, string Email, bool GioiTinh)
+        public static int Update(int KhachHangID, string HoTen, string SDT, string DiaChi)
         {
-            string cmdText = "UPDATE NhanVien SET "
-                          +"HoTen = " + "N'" + HoTen + "', "
-                          +"SDT = " + "N'" + SDT + "', "
-                          +"DiaChi = " + "N'" + DiaChi + "', "
-                          +"Email = " + "'" + Email + "', "
-                          +"GioiTinh = " + "'" + GioiTinh + "' "
-                          +"WHERE NhanVienID = "+NhanVienID;
+            string cmdText = "UPDATE KhachHang SET "
+                          + "HoTen = " + "N'" + HoTen + "', "
+                          + "SDT = " + "N'" + SDT + "', "
+                          + "DiaChi = " + "N'" + DiaChi + "' "
+                          + "WHERE KhachHangID = " + KhachHangID;
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(cmdText, con);
@@ -64,10 +59,10 @@ namespace RestaurantServices.Business
             con.Close();
             return a;
         }
-        public static int Delete(int NhanVienID)
+        public static int Delete(int KhachHangID)
         {
-            string cmdText = "DELETE FROM NhanVien "
-                         + "WHERE NhanVienID = " + NhanVienID;
+            string cmdText = "DELETE FROM KhachHang "
+                         + "WHERE KhachHangID = " + KhachHangID;
             SqlConnection con = new SqlConnection(ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(cmdText, con);
@@ -76,6 +71,5 @@ namespace RestaurantServices.Business
             con.Close();
             return a;
         }
-        
     }
 }

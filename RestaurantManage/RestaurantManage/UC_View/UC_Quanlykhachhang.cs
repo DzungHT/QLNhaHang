@@ -13,29 +13,124 @@ namespace RestaurantManage.UC_View
 {
     public partial class UC_QuanLyKhachHang : UserControl
     {
-        private NhanVien _nv;
+        private RestaurantServices.RestaurantServicesSoapClient serv = new RestaurantServices.RestaurantServicesSoapClient();
         public UC_QuanLyKhachHang()
         {
             InitializeComponent();
-            _nv = new NhanVien() { NhanVienID = 1, HoTen = "Hoàng Trí Dũng", DiaChi = "ABC", Email = "Email" };
-            InitDataBinding();
+            ShowListKH();
+        }
+        private void ShowListKH()
+        {
+            try
+            {
+                dgvDS_Nhanvien.DataSource = serv.GetAllKhachHang();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void RefreshBoxInfo()
+        {
+            tbSodienthoai.Text = "";
+            tbKhachHangID.Text = "";
+            tbHoten.Text = "";
+            tbDiachi.Text = "";
+            lblThongbao.Text = "";
         }
 
-        public void InitDataBinding()
+
+
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            Binding bind = new Binding("Text", _nv, "HoTen", true, DataSourceUpdateMode.OnPropertyChanged);
-            tbHoten.DataBindings.Add(bind);
+            try
+            {
+                if (serv.InsertKhachHang(tbHoten.Text, tbSodienthoai.Text, tbDiachi.Text) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Insert thanh cong!";
+                    ShowListKH();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Insert that bai!";
+                    ShowListKH();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void dgvDS_Nhanvien_SelectionChanged(object sender, EventArgs e)
+        {
+            tbKhachHangID.Text = dgvDS_Nhanvien.CurrentRow.Cells[0].Value.ToString();
+            tbHoten.Text = dgvDS_Nhanvien.CurrentRow.Cells[1].Value.ToString();
+            tbSodienthoai.Text = dgvDS_Nhanvien.CurrentRow.Cells[2].Value.ToString();
+            tbDiachi.Text = dgvDS_Nhanvien.CurrentRow.Cells[3].Value.ToString();
+
+
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int KhachHangID = int.Parse(tbKhachHangID.Text.ToString());
+                if (serv.DeleteKhachHang(KhachHangID) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Delete thanh cong!";
+                    ShowListKH();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Delete that bai!";
+                    ShowListKH();
+
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_nv.HoTen + "|" + tbHoten.Text);
+            try
+            {
+                int KhachHangID = int.Parse(tbKhachHangID.Text.ToString());
+                if (serv.UpdateKhachHang(KhachHangID, tbHoten.Text, tbSodienthoai.Text, tbDiachi.Text) == 1)
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Update thanh cong!";
+                    ShowListKH();
+                }
+                else
+                {
+                    RefreshBoxInfo();
+                    lblThongbao.Text = "Update that bai!";
+                    ShowListKH();
+
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
-            RestaurantServices.RestaurantServicesSoapClient res = new RestaurantServices.RestaurantServicesSoapClient();
-            DataTable dt = res.Login("admin","123468");
+            RefreshBoxInfo();
+            lblThongbao.Text = "Hủy thành công!";
+        }
+
+        private void dgvDS_Nhanvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

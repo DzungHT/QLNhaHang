@@ -11,7 +11,7 @@ namespace RestaurantServices.Business
 {
     public class AccountDAO
     {
-        private string ConnectionString { get { return ConfigurationManager.ConnectionStrings["DataContext"].ConnectionString; } }
+        private static string ConnectionString { get { return ConfigurationManager.ConnectionStrings["DataContext"].ConnectionString; } }
 
         /// <summary>
         /// Trả về dữ liệu của nhân viên và account tương ứng
@@ -21,7 +21,7 @@ namespace RestaurantServices.Business
         /// <returns></returns>
         public DataTable Login(string username, string password)
         {
-            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlConnection con = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -44,19 +44,52 @@ namespace RestaurantServices.Business
 
         public static DataTable GetAllAccount()
         {
-            return new DataTable();
+            string cmdText = "SELECT * FROM Account";
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter(cmdText, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dt.TableName = "dt";
+            if (dt.Rows.Count > 0)
+            {
+                return dt;
+            }
+            else
+            {
+                return null;
+            }
+
         }
-        public static void Insert(string username, string password, int NhanVienID)
+        public static int Insert(string username, string password, int NhanVienID)
         {
-            return;
+            string cmdText = "INSERT INTO Account VALUES("
+                          + "N'" + username + "', "
+                          + "'" + password.ToMD5() + "', "
+                          + "" + NhanVienID + " "
+                         + ")";
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(cmdText, con);
+            cmd.CommandType = CommandType.Text;
+            int a = cmd.ExecuteNonQuery();
+            con.Close();
+            return a;
         }
-        public static void ChangePassword(string username, string password, int NhanVienID)
+        public static int ChangePassword(string username, string password, int NhanVienID)
         {
-            return;
+            return 0;
         }
-        public static void Delete(string username)
+        public static int Delete(string username)
         {
-            return;
+            string cmdText = "DELETE FROM Account "
+             + "WHERE Username = " + username;
+            SqlConnection con = new SqlConnection(ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(cmdText, con);
+            cmd.CommandType = CommandType.Text;
+            int a = cmd.ExecuteNonQuery();
+            con.Close();
+            return a;
         }
     }
 }

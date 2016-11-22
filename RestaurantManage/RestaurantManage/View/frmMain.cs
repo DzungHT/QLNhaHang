@@ -74,5 +74,21 @@ namespace RestaurantManage.View
             panel1.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
         }
+
+        private void accountToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_QuanLyAccount uc = new UC_View.UC_QuanLyAccount();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_QuanLyKhachHang uck = new UC_View.UC_QuanLyKhachHang();
+            panel1.Controls.Add(uck);
+            uck.Dock = DockStyle.Fill;
+        }
     }
 }
