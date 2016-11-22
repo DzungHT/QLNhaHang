@@ -62,9 +62,17 @@ namespace RestaurantManage.View
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            UC_View.UC_BanHang ucBanHang = new UC_View.UC_BanHang();
-            panel1.Controls.Add(ucBanHang);
-            ucBanHang.Dock = DockStyle.Fill;
+            //UC_View.UC_BanHang ucBanHang = new UC_View.UC_BanHang();
+            //panel1.Controls.Add(ucBanHang);
+            //ucBanHang.Dock = DockStyle.Fill;
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_QuanLyNhanVien uc = new UC_View.UC_QuanLyNhanVien();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
         }
     }
 }

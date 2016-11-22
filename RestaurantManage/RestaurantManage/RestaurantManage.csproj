@@ -54,8 +54,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiMonAn.cs" />
     <Compile Include="Models\BanAn.cs" />
     <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\SearchItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\RestaurantServices\Reference.cs">
@@ -105,11 +113,11 @@
     <Compile Include="UC_View\UC_Quanlyhoadon.Designer.cs">
       <DependentUpon>UC_Quanlyhoadon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlykhachhang.cs">
+    <Compile Include="UC_View\UC_QuanLyNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlykhachhang.Designer.cs">
-      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    <Compile Include="UC_View\UC_QuanLyNhanVien.Designer.cs">
+      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_View\UC_Quanlykhuvuc.cs">
       <SubType>UserControl</SubType>
@@ -129,11 +137,11 @@
     <Compile Include="UC_View\UC_Quanlymonan.Designer.cs">
       <DependentUpon>UC_Quanlymonan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlynhanvien.cs">
+    <Compile Include="UC_View\UC_QuanLyKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_View\UC_Quanlynhanvien.Designer.cs">
-      <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    <Compile Include="UC_View\UC_QuanLyKhachHang.Designer.cs">
+      <DependentUpon>UC_QuanLyKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmDialog.cs">
       <SubType>Form</SubType>
@@ -153,6 +161,9 @@
     <Compile Include="View\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -174,11 +185,14 @@
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_View\UC_Quanlykhachhang.resx">
-      <DependentUpon>UC_Quanlykhachhang.cs</DependentUpon>
+    <EmbeddedResource Include="UC_View\UC_Quanlyloaimonan.resx">
+      <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
       <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_QuanLyKhachHang.resx">
+      <DependentUpon>UC_QuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
