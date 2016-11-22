@@ -17,11 +17,18 @@ namespace RestaurantServices
     // [System.Web.Script.Services.ScriptService]
     public class RestaurantServices : System.Web.Services.WebService
     {
+        #region HuyNQ
         [WebMethod]
         public DataTable Login(String username, String password)
         {
             AccountDAO acc = new AccountDAO();
             return acc.Login(username, password);
         }
+        #endregion
+        #region  DoanVD
+
+        #endregion
+        #region DzungHT
+        #endregion
     }
 }
