@@ -175,14 +175,12 @@
     <EmbeddedResource Include="UC_View\UC_Goimon_Main.resx">
       <DependentUpon>UC_Goimon_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_View\UC_QuanLyNhanVien.resx">
-      <DependentUpon>UC_QuanLyNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlyloaimonan.resx">
       <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
       <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_QuanLyKhachHang.resx">
       <DependentUpon>UC_QuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>

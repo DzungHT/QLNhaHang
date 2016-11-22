@@ -80,6 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\AccountDAO.cs" />
+    <Compile Include="Business\BanAnDAO.cs" />
+    <Compile Include="Business\KhuVucDAO.cs" />
+    <Compile Include="Business\LoaiMonAnDAO.cs" />
+    <Compile Include="Business\MonAnDAO.cs" />
     <Compile Include="Business\NhanVienDAO.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -54,7 +54,7 @@ namespace RestaurantServices.Business
         {
             return;
         }
-        public static void DeleteAccount(string username)
+        public static void Delete(string username)
         {
             return;
         }
