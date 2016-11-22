@@ -34,7 +34,8 @@ namespace RestaurantManage.UC_View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _nv.HoTen = "Hoàng Trí Dũng";
+            RestaurantServices.RestaurantServicesSoapClient res = new RestaurantServices.RestaurantServicesSoapClient();
+            DataTable dt = res.Login("admin","123468");
         }
     }
 }

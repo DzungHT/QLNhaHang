@@ -11,7 +11,7 @@ namespace RestaurantServices.Business
 {
     public class AccountDAO
     {
-        private string ConnectionString { get { return ConfigurationManager.ConnectionStrings[0].ConnectionString; } }
+        private string ConnectionString { get { return ConfigurationManager.ConnectionStrings["DataContext"].ConnectionString; } }
 
         /// <summary>
         /// Trả về dữ liệu của nhân viên và account tương ứng

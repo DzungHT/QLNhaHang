@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-
+using System.Data;
+using RestaurantServices.Business;
 namespace RestaurantServices
 {
     /// <summary>
@@ -16,11 +17,11 @@ namespace RestaurantServices
     // [System.Web.Script.Services.ScriptService]
     public class RestaurantServices : System.Web.Services.WebService
     {
-
         [WebMethod]
-        public string HelloWorld()
+        public DataTable Login(String username, String password)
         {
-            return "Hello World";
+            AccountDAO acc = new AccountDAO();
+            return acc.Login(username, password);
         }
     }
 }
