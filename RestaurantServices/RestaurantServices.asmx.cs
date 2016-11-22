@@ -74,11 +74,38 @@ namespace RestaurantServices
         MonAnDAO _MonAnDAO = new MonAnDAO();
         KhuVucDAO _KhuVucDAO = new KhuVucDAO();
         BanAnDAO _BanAnDAO = new BanAnDAO();
-        // Lo?i món an
+        // Lọai món an
         [WebMethod]
         public DataTable DS_LoaiMonAN(String st, String sc, bool iss)
         {
             return _LoaiMonAnDAO.DS_LoaiMonAn(st, sc, iss);
+        }
+        [WebMethod]
+        public DataTable LoaiMonAn_Chitiet(int loaimonanid)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "Select * from LoaiMonAn where LoaiMonAnID=" + loaimonanid.ToString();
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "LoaiMonAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         [WebMethod]
         public bool LoaiMonAn_Insert(string ten, string mota)
@@ -102,6 +129,33 @@ namespace RestaurantServices
             return _MonAnDAO.DS_MonAn(searchtype, searchcontent, isSearch);
         }
         [WebMethod]
+        public DataTable MonAn_Chitiet(int monanid)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT m.*, l.TenLoaiMonAn FROM MonAn m INNER JOIN LoaiMonAn l ON m.LoaiMonAnID = l.LoaiMonAnID where MonAnID=" + monanid.ToString();
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "MonAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        [WebMethod]
         public bool MonAn_Insert(string ten, string donvi, int dongia, int loaiid, int soluongton, string toithieu)
         {
             return _MonAnDAO.Insert(ten, donvi, dongia, loaiid, soluongton, toithieu);
@@ -123,6 +177,33 @@ namespace RestaurantServices
             return _KhuVucDAO.DS_KhuVuc(searchtype, searchcontent, isSearch);
         }
         [WebMethod]
+        public DataTable KhuVuc_Chitiet(int khuvucid)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "Select * from KhuVuc where KhuVucID=" + khuvucid.ToString();
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "KhuVuc";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        [WebMethod]
         public bool KhuVuc_Insert(string ten, string mota)
         {
             return _KhuVucDAO.Insert(ten, mota);
@@ -142,6 +223,33 @@ namespace RestaurantServices
         public DataTable DS_BanAn(string searchtype, string searchcontent, bool isSearch)
         {
             return _BanAnDAO.DS_BanAn(searchtype, searchcontent, isSearch);
+        }
+        [WebMethod]
+        public DataTable BanAn_Chitiet(int bananid)
+        {
+            SqlConnection con = new SqlConnection(this.ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con;
+            string sql = "SELECT b.*, k.TenKhuVuc FROM BanAn b INNER JOIN KhuVuc k ON b.KhuVucID = k.KhuVucID where BanAnID=" + bananid.ToString();
+            cmd.CommandText = sql;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                con.Open();
+                da.Fill(dt);
+                dt.TableName = "BanAn";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         [WebMethod]
         public bool BanAn_Insert(string ten, int khuvucid, int trangthai, int songuoi)

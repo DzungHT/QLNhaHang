@@ -86,6 +86,13 @@ namespace RestaurantManage.RestaurantServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_LoaiMonAN", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> DS_LoaiMonANAsync(string st, string sc, bool iss);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoaiMonAn_Chitiet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable LoaiMonAn_Chitiet(int loaimonanid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoaiMonAn_Chitiet", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> LoaiMonAn_ChitietAsync(int loaimonanid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoaiMonAn_Insert", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool LoaiMonAn_Insert(string ten, string mota);
@@ -113,6 +120,13 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_MonAn", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> DS_MonAnAsync(string searchtype, string searchcontent, bool isSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MonAn_Chitiet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable MonAn_Chitiet(int monanid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MonAn_Chitiet", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> MonAn_ChitietAsync(int monanid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MonAn_Insert", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -142,6 +156,13 @@ namespace RestaurantManage.RestaurantServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_KhuVuc", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> DS_KhuVucAsync(string searchtype, string searchcontent, bool isSearch);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KhuVuc_Chitiet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable KhuVuc_Chitiet(int khuvucid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KhuVuc_Chitiet", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> KhuVuc_ChitietAsync(int khuvucid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/KhuVuc_Insert", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         bool KhuVuc_Insert(string ten, string mota);
@@ -169,6 +190,13 @@ namespace RestaurantManage.RestaurantServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DS_BanAn", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> DS_BanAnAsync(string searchtype, string searchcontent, bool isSearch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BanAn_Chitiet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable BanAn_Chitiet(int bananid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BanAn_Chitiet", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BanAn_ChitietAsync(int bananid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BanAn_Insert", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -334,6 +362,14 @@ namespace RestaurantManage.RestaurantServices {
             return base.Channel.DS_LoaiMonANAsync(st, sc, iss);
         }
         
+        public System.Data.DataTable LoaiMonAn_Chitiet(int loaimonanid) {
+            return base.Channel.LoaiMonAn_Chitiet(loaimonanid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> LoaiMonAn_ChitietAsync(int loaimonanid) {
+            return base.Channel.LoaiMonAn_ChitietAsync(loaimonanid);
+        }
+        
         public bool LoaiMonAn_Insert(string ten, string mota) {
             return base.Channel.LoaiMonAn_Insert(ten, mota);
         }
@@ -364,6 +400,14 @@ namespace RestaurantManage.RestaurantServices {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> DS_MonAnAsync(string searchtype, string searchcontent, bool isSearch) {
             return base.Channel.DS_MonAnAsync(searchtype, searchcontent, isSearch);
+        }
+        
+        public System.Data.DataTable MonAn_Chitiet(int monanid) {
+            return base.Channel.MonAn_Chitiet(monanid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> MonAn_ChitietAsync(int monanid) {
+            return base.Channel.MonAn_ChitietAsync(monanid);
         }
         
         public bool MonAn_Insert(string ten, string donvi, int dongia, int loaiid, int soluongton, string toithieu) {
@@ -398,6 +442,14 @@ namespace RestaurantManage.RestaurantServices {
             return base.Channel.DS_KhuVucAsync(searchtype, searchcontent, isSearch);
         }
         
+        public System.Data.DataTable KhuVuc_Chitiet(int khuvucid) {
+            return base.Channel.KhuVuc_Chitiet(khuvucid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> KhuVuc_ChitietAsync(int khuvucid) {
+            return base.Channel.KhuVuc_ChitietAsync(khuvucid);
+        }
+        
         public bool KhuVuc_Insert(string ten, string mota) {
             return base.Channel.KhuVuc_Insert(ten, mota);
         }
@@ -428,6 +480,14 @@ namespace RestaurantManage.RestaurantServices {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> DS_BanAnAsync(string searchtype, string searchcontent, bool isSearch) {
             return base.Channel.DS_BanAnAsync(searchtype, searchcontent, isSearch);
+        }
+        
+        public System.Data.DataTable BanAn_Chitiet(int bananid) {
+            return base.Channel.BanAn_Chitiet(bananid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BanAn_ChitietAsync(int bananid) {
+            return base.Channel.BanAn_ChitietAsync(bananid);
         }
         
         public bool BanAn_Insert(string ten, int khuvucid, int trangthai, int songuoi) {

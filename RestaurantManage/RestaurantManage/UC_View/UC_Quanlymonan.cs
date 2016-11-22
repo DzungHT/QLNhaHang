@@ -39,7 +39,6 @@ namespace RestaurantManage.UC_View
         {
             _obj = new MonAn();
             txtTenmonan.Enabled = true;
-            txtMota.Enabled = true;
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
         }
@@ -54,7 +53,6 @@ namespace RestaurantManage.UC_View
             }
             lblThongbao.Visible = false;
             txtTenmonan.Enabled = true;
-            txtMota.Enabled = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -155,7 +153,7 @@ namespace RestaurantManage.UC_View
             txtTenmonan.DataBindings.Add(bind1);
             txtDonvitinh.DataBindings.Add(bind2);
             txtDongia.DataBindings.Add(bind5);
-            txtLoaimonan.
+            //txtLoaimonan.
             txtSoluongton.DataBindings.Add(bind7);
 
             Binding bind3 = new Binding("Text", _sitem, "SearchType", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -166,15 +164,14 @@ namespace RestaurantManage.UC_View
 
         private void LoadDS()
         {
-            dgvDS_Monan.DataSource = sv.DS_MonAN("", "", false);
+            dgvDS_Monan.DataSource = sv.DS_MonAn("","",false);
         }
         private void LoadSearch()
         {
-            dgvDS_Timkiem.DataSource = sv.DS_MonAN(_sitem.SearchType, _sitem.SearchContent, true);
+            dgvDS_Timkiem.DataSource = sv.DS_MonAn(_sitem.SearchType, _sitem.SearchContent, true);
         }
         private void HideText()
         {
-            txtMota.Enabled = false;
             txtTenmonan.Enabled = false;
         }
         private void HideButtom()

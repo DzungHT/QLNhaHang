@@ -26,7 +26,7 @@ namespace RestaurantManage.Models
         int _DonGia;
         int _LoaiMonAnID;
         int _SoLuongTon;
-        int _TonToiThieu;
+        string _TonToiThieu;
         public int MonAnID
         {
             get
@@ -123,7 +123,7 @@ namespace RestaurantManage.Models
                 }
             }
         }
-        public int TonToiThieu
+        public string TonToiThieu
         {
             get
             {
@@ -148,7 +148,7 @@ namespace RestaurantManage.Models
                 this._DonGia = dr["DonGia"] != null ? (int)dr["DonGia"] : 0;
                 this._LoaiMonAnID = dr["LoaiMonAnID"] != null ? (int)dr["LoaiMonAnID"] : 0;
                 this._SoLuongTon = dr["SoLuongTon"] != null ? (int)dr["SoLuongTon"] : 0;
-                this._TonToiThieu = dr["TonToiThieu"] != null ? (int)dr["TonToiThieu"] : 0;
+                this._TonToiThieu = dr["TonToiThieu"] != null ? dr["TonToiThieu"].ToString() : null;
                 this._TenMonAn = dr["TenMonAn"] != null ? dr["TenMonAn"].ToString() : null;
                 this._DonViTinh = dr["DonViTinh"] != null ? dr["DonViTinh"].ToString() : null;
             }

@@ -154,6 +154,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="LoaiMonAn_Chitiet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loaimonanid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_ChitietResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoaiMonAn_ChitietResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="LoaiMonAn_Insert">
         <s:complexType>
           <s:sequence>
@@ -212,6 +233,27 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="DS_MonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_Chitiet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="monanid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_ChitietResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MonAn_ChitietResult">
               <s:complexType>
                 <s:sequence>
                   <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
@@ -298,6 +340,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="KhuVuc_Chitiet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="khuvucid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_ChitietResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KhuVuc_ChitietResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="KhuVuc_Insert">
         <s:complexType>
           <s:sequence>
@@ -356,6 +419,27 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="DS_BanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_Chitiet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bananid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_ChitietResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BanAn_ChitietResult">
               <s:complexType>
                 <s:sequence>
                   <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
@@ -571,6 +655,12 @@
   <wsdl:message name="DS_LoaiMonANSoapOut">
     <wsdl:part name="parameters" element="tns:DS_LoaiMonANResponse" />
   </wsdl:message>
+  <wsdl:message name="LoaiMonAn_ChitietSoapIn">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_Chitiet" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_ChitietSoapOut">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_ChitietResponse" />
+  </wsdl:message>
   <wsdl:message name="LoaiMonAn_InsertSoapIn">
     <wsdl:part name="parameters" element="tns:LoaiMonAn_Insert" />
   </wsdl:message>
@@ -594,6 +684,12 @@
   </wsdl:message>
   <wsdl:message name="DS_MonAnSoapOut">
     <wsdl:part name="parameters" element="tns:DS_MonAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_ChitietSoapIn">
+    <wsdl:part name="parameters" element="tns:MonAn_Chitiet" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_ChitietSoapOut">
+    <wsdl:part name="parameters" element="tns:MonAn_ChitietResponse" />
   </wsdl:message>
   <wsdl:message name="MonAn_InsertSoapIn">
     <wsdl:part name="parameters" element="tns:MonAn_Insert" />
@@ -619,6 +715,12 @@
   <wsdl:message name="DS_KhuVucSoapOut">
     <wsdl:part name="parameters" element="tns:DS_KhuVucResponse" />
   </wsdl:message>
+  <wsdl:message name="KhuVuc_ChitietSoapIn">
+    <wsdl:part name="parameters" element="tns:KhuVuc_Chitiet" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_ChitietSoapOut">
+    <wsdl:part name="parameters" element="tns:KhuVuc_ChitietResponse" />
+  </wsdl:message>
   <wsdl:message name="KhuVuc_InsertSoapIn">
     <wsdl:part name="parameters" element="tns:KhuVuc_Insert" />
   </wsdl:message>
@@ -642,6 +744,12 @@
   </wsdl:message>
   <wsdl:message name="DS_BanAnSoapOut">
     <wsdl:part name="parameters" element="tns:DS_BanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_ChitietSoapIn">
+    <wsdl:part name="parameters" element="tns:BanAn_Chitiet" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_ChitietSoapOut">
+    <wsdl:part name="parameters" element="tns:BanAn_ChitietResponse" />
   </wsdl:message>
   <wsdl:message name="BanAn_InsertSoapIn">
     <wsdl:part name="parameters" element="tns:BanAn_Insert" />
@@ -732,6 +840,10 @@
       <wsdl:input message="tns:DS_LoaiMonANSoapIn" />
       <wsdl:output message="tns:DS_LoaiMonANSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Chitiet">
+      <wsdl:input message="tns:LoaiMonAn_ChitietSoapIn" />
+      <wsdl:output message="tns:LoaiMonAn_ChitietSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="LoaiMonAn_Insert">
       <wsdl:input message="tns:LoaiMonAn_InsertSoapIn" />
       <wsdl:output message="tns:LoaiMonAn_InsertSoapOut" />
@@ -747,6 +859,10 @@
     <wsdl:operation name="DS_MonAn">
       <wsdl:input message="tns:DS_MonAnSoapIn" />
       <wsdl:output message="tns:DS_MonAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Chitiet">
+      <wsdl:input message="tns:MonAn_ChitietSoapIn" />
+      <wsdl:output message="tns:MonAn_ChitietSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="MonAn_Insert">
       <wsdl:input message="tns:MonAn_InsertSoapIn" />
@@ -764,6 +880,10 @@
       <wsdl:input message="tns:DS_KhuVucSoapIn" />
       <wsdl:output message="tns:DS_KhuVucSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Chitiet">
+      <wsdl:input message="tns:KhuVuc_ChitietSoapIn" />
+      <wsdl:output message="tns:KhuVuc_ChitietSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="KhuVuc_Insert">
       <wsdl:input message="tns:KhuVuc_InsertSoapIn" />
       <wsdl:output message="tns:KhuVuc_InsertSoapOut" />
@@ -779,6 +899,10 @@
     <wsdl:operation name="DS_BanAn">
       <wsdl:input message="tns:DS_BanAnSoapIn" />
       <wsdl:output message="tns:DS_BanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Chitiet">
+      <wsdl:input message="tns:BanAn_ChitietSoapIn" />
+      <wsdl:output message="tns:BanAn_ChitietSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="BanAn_Insert">
       <wsdl:input message="tns:BanAn_InsertSoapIn" />
@@ -905,6 +1029,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Chitiet">
+      <soap:operation soapAction="http://tempuri.org/LoaiMonAn_Chitiet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoaiMonAn_Insert">
       <soap:operation soapAction="http://tempuri.org/LoaiMonAn_Insert" style="document" />
       <wsdl:input>
@@ -934,6 +1067,15 @@
     </wsdl:operation>
     <wsdl:operation name="DS_MonAn">
       <soap:operation soapAction="http://tempuri.org/DS_MonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Chitiet">
+      <soap:operation soapAction="http://tempuri.org/MonAn_Chitiet" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -977,6 +1119,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Chitiet">
+      <soap:operation soapAction="http://tempuri.org/KhuVuc_Chitiet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="KhuVuc_Insert">
       <soap:operation soapAction="http://tempuri.org/KhuVuc_Insert" style="document" />
       <wsdl:input>
@@ -1006,6 +1157,15 @@
     </wsdl:operation>
     <wsdl:operation name="DS_BanAn">
       <soap:operation soapAction="http://tempuri.org/DS_BanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Chitiet">
+      <soap:operation soapAction="http://tempuri.org/BanAn_Chitiet" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1178,6 +1338,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Chitiet">
+      <soap12:operation soapAction="http://tempuri.org/LoaiMonAn_Chitiet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoaiMonAn_Insert">
       <soap12:operation soapAction="http://tempuri.org/LoaiMonAn_Insert" style="document" />
       <wsdl:input>
@@ -1207,6 +1376,15 @@
     </wsdl:operation>
     <wsdl:operation name="DS_MonAn">
       <soap12:operation soapAction="http://tempuri.org/DS_MonAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Chitiet">
+      <soap12:operation soapAction="http://tempuri.org/MonAn_Chitiet" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1250,6 +1428,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Chitiet">
+      <soap12:operation soapAction="http://tempuri.org/KhuVuc_Chitiet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="KhuVuc_Insert">
       <soap12:operation soapAction="http://tempuri.org/KhuVuc_Insert" style="document" />
       <wsdl:input>
@@ -1279,6 +1466,15 @@
     </wsdl:operation>
     <wsdl:operation name="DS_BanAn">
       <soap12:operation soapAction="http://tempuri.org/DS_BanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Chitiet">
+      <soap12:operation soapAction="http://tempuri.org/BanAn_Chitiet" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
