@@ -14,12 +14,12 @@ namespace RestaurantManage.UC_View
     public partial class UC_Quanlyloaimonan : UserControl
     {
         RestaurantServices.RestaurantServicesSoapClient sv = new RestaurantServices.RestaurantServicesSoapClient();
-        private LoaiMonAn _lma;
+        private LoaiMonAn _obj;
         private SearchItem _sitem;
         public UC_Quanlyloaimonan()
         {
             InitializeComponent();
-            _lma = new LoaiMonAn();
+            _obj = new LoaiMonAn();
             _sitem = new SearchItem();
             this.LoadDS();
             InitDataBinding();
@@ -37,7 +37,7 @@ namespace RestaurantManage.UC_View
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            _lma = new LoaiMonAn();
+            _obj = new LoaiMonAn();
             txtTenloai.Enabled = true;
             txtMota.Enabled = true;
             btnLuu.Enabled = true;
@@ -46,7 +46,7 @@ namespace RestaurantManage.UC_View
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (_lma.LoaiMonAnID == 0)
+            if (_obj.LoaiMonAnID == 0)
             {
                 lblThongbao.Text = "Vui lòng chọn bản ghi muốn sửa";
                 lblThongbao.Visible = true;
@@ -59,16 +59,16 @@ namespace RestaurantManage.UC_View
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (_lma.LoaiMonAnID == 0)
+            if (_obj.LoaiMonAnID == 0)
             {
                 lblThongbao.Text = "Vui lòng chọn bản ghi muốn xóa";
                 lblThongbao.Visible = true;
                 return;
             }
-            if (sv.LoaiMonAn_Delete(_lma.LoaiMonAnID))
+            if (sv.LoaiMonAn_Delete(_obj.LoaiMonAnID))
             {
                 MessageBox.Show("Xóa thành công!");
-                _lma = new LoaiMonAn();
+                _obj = new LoaiMonAn();
                 this.HideText();
                 this.LoadDS();
                 this.LoadSearch();
@@ -82,7 +82,7 @@ namespace RestaurantManage.UC_View
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (_lma.TenLoaiMonAN == "")
+            if (_obj.TenLoaiMonAN == "")
             {
                 lblThongbao.Text = "Vui lòng điền tên loại món ăn";
                 lblThongbao.Visible = true;
@@ -91,20 +91,20 @@ namespace RestaurantManage.UC_View
             else
             {
                 lblThongbao.Visible = false;
-                if (_lma.LoaiMonAnID == 0)
+                if (_obj.LoaiMonAnID == 0)
                 {
-                    if (!sv.LoaiMonAn_Insert(_lma.TenLoaiMonAN, _lma.MoTa))
+                    if (!sv.LoaiMonAn_Insert(_obj.TenLoaiMonAN, _obj.MoTa))
                         MessageBox.Show("Thêm thất bại.");
                     MessageBox.Show("Thêm thành công.");
                 }
                 else
                 {
-                    if (!sv.LoaiMonAn_Update(_lma.LoaiMonAnID, _lma.TenLoaiMonAN, _lma.MoTa))
+                    if (!sv.LoaiMonAn_Update(_obj.LoaiMonAnID, _obj.TenLoaiMonAN, _obj.MoTa))
                         MessageBox.Show("Sửa thất bại");
                     MessageBox.Show("Sửa thành công.");
                 }
             }
-            _lma = new LoaiMonAn();
+            _obj = new LoaiMonAn();
             this.HideText();
             this.HideButtom();
             this.LoadDS();
@@ -113,7 +113,7 @@ namespace RestaurantManage.UC_View
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            _lma = new LoaiMonAn();
+            _obj = new LoaiMonAn();
             this.HideText();
             this.HideButtom();
         }
@@ -123,15 +123,17 @@ namespace RestaurantManage.UC_View
             this.LoadSearch();
         }
 
+        private void dgvDS_Timkiem_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void dgvDS_Loaimonan_SelectionChanged(object sender, EventArgs e)
         {
             
         }
 
-        private void dgvDS_Timkiem_SelectionChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         #region Hàm hỗ trợ
         private void ShowTimkiem()
@@ -144,9 +146,9 @@ namespace RestaurantManage.UC_View
         }
         private void InitDataBinding()
         {
-            Binding bind = new Binding("Text", _lma, "TenLoaiMonAn", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind1 = new Binding("Text", _lma,"LoaiMonAnID", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind2 = new Binding("Text", _lma, "MoTa", true, DataSourceUpdateMode.OnPropertyChanged);
+            Binding bind = new Binding("Text", _obj, "TenLoaiMonAn", true, DataSourceUpdateMode.OnPropertyChanged);
+            Binding bind1 = new Binding("Text", _obj,"LoaiMonAnID", true, DataSourceUpdateMode.OnPropertyChanged);
+            Binding bind2 = new Binding("Text", _obj, "MoTa", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTenloai.DataBindings.Add(bind);
             txtID.DataBindings.Add(bind1);
             txtMota.DataBindings.Add(bind2);

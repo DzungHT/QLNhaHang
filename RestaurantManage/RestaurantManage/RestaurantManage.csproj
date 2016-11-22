@@ -61,6 +61,7 @@
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiMonAn.cs" />
+    <Compile Include="Models\MonAn.cs" />
     <Compile Include="Models\BanAn.cs" />
     <Compile Include="Models\NhanVien.cs" />
     <Compile Include="Models\SearchItem.cs" />
@@ -187,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlyloaimonan.resx">
       <DependentUpon>UC_Quanlyloaimonan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_View\UC_Quanlymonan.resx">
+      <DependentUpon>UC_Quanlymonan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_View\UC_Quanlynhanvien.resx">
       <DependentUpon>UC_Quanlynhanvien.cs</DependentUpon>
