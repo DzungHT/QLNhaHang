@@ -25,14 +25,15 @@ namespace RestaurantServices.Business
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = string.Format("", username, password.ToMD5());
-
+            cmd.CommandText = "sp_Account_Login";
+            cmd.Parameters.Add(new SqlParameter("Username", username));
+            cmd.Parameters.Add(new SqlParameter("Password", password.ToMD5()));
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-
             if(dt.Rows.Count == 1)
             {
+                dt.TableName = "Login";
                 return dt;
             }
             else
