@@ -24,6 +24,491 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAllNhanVien">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllNhanVienResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllNhanVienResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNhanVien">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HoTen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GioiTinh" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertNhanVienResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateNhanVien">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NhanVienID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="HoTen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SDT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DiaChi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GioiTinh" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNhanVienResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteNhanVien">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NhanVienID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteNhanVienResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllAccount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllAccountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NhanVienID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAccountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NhanVienID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAccountResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DS_LoaiMonAN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="st" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sc" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iss" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_LoaiMonANResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS_LoaiMonANResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoaiMonAn_InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoaiMonAn_UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoaiMonAn_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoaiMonAn_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_MonAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchcontent" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isSearch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_MonAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS_MonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="donvi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dongia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loaiid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="soluongton" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="toithieu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MonAn_InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="donvi" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dongia" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="loaiid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="soluongton" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="toithieu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MonAn_UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonAn_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MonAn_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_KhuVuc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchcontent" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isSearch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_KhuVucResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS_KhuVucResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KhuVuc_InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mota" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KhuVuc_UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KhuVuc_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KhuVuc_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_BanAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchcontent" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isSearch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DS_BanAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS_BanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="khuvucid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangthai" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="songuoi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BanAn_InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ten" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="khuvucid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangthai" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="songuoi" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BanAn_UpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BanAn_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BanAn_DeleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_BanAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="khuVucBanAnID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="trangThaiID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_BanAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_BanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_KhuVuc">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_KhuVucResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_KhuVucResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_TrangThaiBanAn">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_TrangThaiBanAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_TrangThaiBanAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_LoaiMonAn">
+        <s:complexType />
+      </s:element>
+      <s:element name="Lay_LoaiMonAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_LoaiMonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_MonAn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoaiMonAnID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Lay_MonAnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Lay_MonAnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LoginSoapIn">
@@ -32,10 +517,300 @@
   <wsdl:message name="LoginSoapOut">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAllNhanVienSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllNhanVien" />
+  </wsdl:message>
+  <wsdl:message name="GetAllNhanVienSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllNhanVienResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertNhanVienSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertNhanVien" />
+  </wsdl:message>
+  <wsdl:message name="InsertNhanVienSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertNhanVienResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNhanVienSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateNhanVien" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNhanVienSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateNhanVienResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNhanVienSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteNhanVien" />
+  </wsdl:message>
+  <wsdl:message name="DeleteNhanVienSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteNhanVienResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAccount" />
+  </wsdl:message>
+  <wsdl:message name="InsertAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAccount" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DS_LoaiMonANSoapIn">
+    <wsdl:part name="parameters" element="tns:DS_LoaiMonAN" />
+  </wsdl:message>
+  <wsdl:message name="DS_LoaiMonANSoapOut">
+    <wsdl:part name="parameters" element="tns:DS_LoaiMonANResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_Insert" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_Update" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_Delete" />
+  </wsdl:message>
+  <wsdl:message name="LoaiMonAn_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:LoaiMonAn_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DS_MonAnSoapIn">
+    <wsdl:part name="parameters" element="tns:DS_MonAn" />
+  </wsdl:message>
+  <wsdl:message name="DS_MonAnSoapOut">
+    <wsdl:part name="parameters" element="tns:DS_MonAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MonAn_Insert" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MonAn_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MonAn_Update" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MonAn_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:MonAn_Delete" />
+  </wsdl:message>
+  <wsdl:message name="MonAn_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:MonAn_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DS_KhuVucSoapIn">
+    <wsdl:part name="parameters" element="tns:DS_KhuVuc" />
+  </wsdl:message>
+  <wsdl:message name="DS_KhuVucSoapOut">
+    <wsdl:part name="parameters" element="tns:DS_KhuVucResponse" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:KhuVuc_Insert" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:KhuVuc_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:KhuVuc_Update" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:KhuVuc_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:KhuVuc_Delete" />
+  </wsdl:message>
+  <wsdl:message name="KhuVuc_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:KhuVuc_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DS_BanAnSoapIn">
+    <wsdl:part name="parameters" element="tns:DS_BanAn" />
+  </wsdl:message>
+  <wsdl:message name="DS_BanAnSoapOut">
+    <wsdl:part name="parameters" element="tns:DS_BanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:BanAn_Insert" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:BanAn_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:BanAn_Update" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:BanAn_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:BanAn_Delete" />
+  </wsdl:message>
+  <wsdl:message name="BanAn_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:BanAn_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_BanAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_BanAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_BanAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_BanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_KhuVucSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_KhuVuc" />
+  </wsdl:message>
+  <wsdl:message name="Lay_KhuVucSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_KhuVucResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_TrangThaiBanAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_TrangThaiBanAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_TrangThaiBanAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_TrangThaiBanAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_LoaiMonAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_LoaiMonAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_LoaiMonAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_LoaiMonAnResponse" />
+  </wsdl:message>
+  <wsdl:message name="Lay_MonAnSoapIn">
+    <wsdl:part name="parameters" element="tns:Lay_MonAn" />
+  </wsdl:message>
+  <wsdl:message name="Lay_MonAnSoapOut">
+    <wsdl:part name="parameters" element="tns:Lay_MonAnResponse" />
+  </wsdl:message>
   <wsdl:portType name="RestaurantServicesSoap">
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNhanVien">
+      <wsdl:input message="tns:GetAllNhanVienSoapIn" />
+      <wsdl:output message="tns:GetAllNhanVienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertNhanVien">
+      <wsdl:input message="tns:InsertNhanVienSoapIn" />
+      <wsdl:output message="tns:InsertNhanVienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNhanVien">
+      <wsdl:input message="tns:UpdateNhanVienSoapIn" />
+      <wsdl:output message="tns:UpdateNhanVienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNhanVien">
+      <wsdl:input message="tns:DeleteNhanVienSoapIn" />
+      <wsdl:output message="tns:DeleteNhanVienSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccount">
+      <wsdl:input message="tns:GetAllAccountSoapIn" />
+      <wsdl:output message="tns:GetAllAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAccount">
+      <wsdl:input message="tns:InsertAccountSoapIn" />
+      <wsdl:output message="tns:InsertAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <wsdl:input message="tns:DeleteAccountSoapIn" />
+      <wsdl:output message="tns:DeleteAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DS_LoaiMonAN">
+      <wsdl:input message="tns:DS_LoaiMonANSoapIn" />
+      <wsdl:output message="tns:DS_LoaiMonANSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Insert">
+      <wsdl:input message="tns:LoaiMonAn_InsertSoapIn" />
+      <wsdl:output message="tns:LoaiMonAn_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Update">
+      <wsdl:input message="tns:LoaiMonAn_UpdateSoapIn" />
+      <wsdl:output message="tns:LoaiMonAn_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Delete">
+      <wsdl:input message="tns:LoaiMonAn_DeleteSoapIn" />
+      <wsdl:output message="tns:LoaiMonAn_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DS_MonAn">
+      <wsdl:input message="tns:DS_MonAnSoapIn" />
+      <wsdl:output message="tns:DS_MonAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Insert">
+      <wsdl:input message="tns:MonAn_InsertSoapIn" />
+      <wsdl:output message="tns:MonAn_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Update">
+      <wsdl:input message="tns:MonAn_UpdateSoapIn" />
+      <wsdl:output message="tns:MonAn_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Delete">
+      <wsdl:input message="tns:MonAn_DeleteSoapIn" />
+      <wsdl:output message="tns:MonAn_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DS_KhuVuc">
+      <wsdl:input message="tns:DS_KhuVucSoapIn" />
+      <wsdl:output message="tns:DS_KhuVucSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Insert">
+      <wsdl:input message="tns:KhuVuc_InsertSoapIn" />
+      <wsdl:output message="tns:KhuVuc_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Update">
+      <wsdl:input message="tns:KhuVuc_UpdateSoapIn" />
+      <wsdl:output message="tns:KhuVuc_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Delete">
+      <wsdl:input message="tns:KhuVuc_DeleteSoapIn" />
+      <wsdl:output message="tns:KhuVuc_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DS_BanAn">
+      <wsdl:input message="tns:DS_BanAnSoapIn" />
+      <wsdl:output message="tns:DS_BanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Insert">
+      <wsdl:input message="tns:BanAn_InsertSoapIn" />
+      <wsdl:output message="tns:BanAn_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Update">
+      <wsdl:input message="tns:BanAn_UpdateSoapIn" />
+      <wsdl:output message="tns:BanAn_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Delete">
+      <wsdl:input message="tns:BanAn_DeleteSoapIn" />
+      <wsdl:output message="tns:BanAn_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <wsdl:input message="tns:Lay_BanAnSoapIn" />
+      <wsdl:output message="tns:Lay_BanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <wsdl:input message="tns:Lay_KhuVucSoapIn" />
+      <wsdl:output message="tns:Lay_KhuVucSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <wsdl:input message="tns:Lay_TrangThaiBanAnSoapIn" />
+      <wsdl:output message="tns:Lay_TrangThaiBanAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <wsdl:input message="tns:Lay_LoaiMonAnSoapIn" />
+      <wsdl:output message="tns:Lay_LoaiMonAnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <wsdl:input message="tns:Lay_MonAnSoapIn" />
+      <wsdl:output message="tns:Lay_MonAnSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RestaurantServicesSoap" type="tns:RestaurantServicesSoap">
@@ -49,11 +824,533 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllNhanVien">
+      <soap:operation soapAction="http://tempuri.org/GetAllNhanVien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNhanVien">
+      <soap:operation soapAction="http://tempuri.org/InsertNhanVien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNhanVien">
+      <soap:operation soapAction="http://tempuri.org/UpdateNhanVien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNhanVien">
+      <soap:operation soapAction="http://tempuri.org/DeleteNhanVien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccount">
+      <soap:operation soapAction="http://tempuri.org/GetAllAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAccount">
+      <soap:operation soapAction="http://tempuri.org/InsertAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap:operation soapAction="http://tempuri.org/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_LoaiMonAN">
+      <soap:operation soapAction="http://tempuri.org/DS_LoaiMonAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Insert">
+      <soap:operation soapAction="http://tempuri.org/LoaiMonAn_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Update">
+      <soap:operation soapAction="http://tempuri.org/LoaiMonAn_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Delete">
+      <soap:operation soapAction="http://tempuri.org/LoaiMonAn_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_MonAn">
+      <soap:operation soapAction="http://tempuri.org/DS_MonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Insert">
+      <soap:operation soapAction="http://tempuri.org/MonAn_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Update">
+      <soap:operation soapAction="http://tempuri.org/MonAn_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Delete">
+      <soap:operation soapAction="http://tempuri.org/MonAn_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_KhuVuc">
+      <soap:operation soapAction="http://tempuri.org/DS_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Insert">
+      <soap:operation soapAction="http://tempuri.org/KhuVuc_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Update">
+      <soap:operation soapAction="http://tempuri.org/KhuVuc_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Delete">
+      <soap:operation soapAction="http://tempuri.org/KhuVuc_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_BanAn">
+      <soap:operation soapAction="http://tempuri.org/DS_BanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Insert">
+      <soap:operation soapAction="http://tempuri.org/BanAn_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Update">
+      <soap:operation soapAction="http://tempuri.org/BanAn_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Delete">
+      <soap:operation soapAction="http://tempuri.org/BanAn_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_BanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <soap:operation soapAction="http://tempuri.org/Lay_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_TrangThaiBanAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_LoaiMonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <soap:operation soapAction="http://tempuri.org/Lay_MonAn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="RestaurantServicesSoap12" type="tns:RestaurantServicesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllNhanVien">
+      <soap12:operation soapAction="http://tempuri.org/GetAllNhanVien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertNhanVien">
+      <soap12:operation soapAction="http://tempuri.org/InsertNhanVien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNhanVien">
+      <soap12:operation soapAction="http://tempuri.org/UpdateNhanVien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNhanVien">
+      <soap12:operation soapAction="http://tempuri.org/DeleteNhanVien" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetAllAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAccount">
+      <soap12:operation soapAction="http://tempuri.org/InsertAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAccount">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_LoaiMonAN">
+      <soap12:operation soapAction="http://tempuri.org/DS_LoaiMonAN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Insert">
+      <soap12:operation soapAction="http://tempuri.org/LoaiMonAn_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Update">
+      <soap12:operation soapAction="http://tempuri.org/LoaiMonAn_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoaiMonAn_Delete">
+      <soap12:operation soapAction="http://tempuri.org/LoaiMonAn_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_MonAn">
+      <soap12:operation soapAction="http://tempuri.org/DS_MonAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Insert">
+      <soap12:operation soapAction="http://tempuri.org/MonAn_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Update">
+      <soap12:operation soapAction="http://tempuri.org/MonAn_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MonAn_Delete">
+      <soap12:operation soapAction="http://tempuri.org/MonAn_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_KhuVuc">
+      <soap12:operation soapAction="http://tempuri.org/DS_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Insert">
+      <soap12:operation soapAction="http://tempuri.org/KhuVuc_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Update">
+      <soap12:operation soapAction="http://tempuri.org/KhuVuc_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KhuVuc_Delete">
+      <soap12:operation soapAction="http://tempuri.org/KhuVuc_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DS_BanAn">
+      <soap12:operation soapAction="http://tempuri.org/DS_BanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Insert">
+      <soap12:operation soapAction="http://tempuri.org/BanAn_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Update">
+      <soap12:operation soapAction="http://tempuri.org/BanAn_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BanAn_Delete">
+      <soap12:operation soapAction="http://tempuri.org/BanAn_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_BanAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_BanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_KhuVuc">
+      <soap12:operation soapAction="http://tempuri.org/Lay_KhuVuc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_TrangThaiBanAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_TrangThaiBanAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_LoaiMonAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_LoaiMonAn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lay_MonAn">
+      <soap12:operation soapAction="http://tempuri.org/Lay_MonAn" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
