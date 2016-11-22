@@ -16,7 +16,7 @@ namespace RestaurantManage.Models
         string _SDT;
         string _DiaChi;
         string _Email;
-        bool _GioiTinh;
+        bool? _GioiTinh;
 
         public int NhanVienID
         {
@@ -103,7 +103,7 @@ namespace RestaurantManage.Models
             }
         }
 
-        public bool GioiTinh
+        public bool? GioiTinh
         {
             get
             {
@@ -136,12 +136,12 @@ namespace RestaurantManage.Models
         {
             try
             {
-                this._NhanVienID = dr["NhanVienID"] != null ? (int)dr["NhanVienID"] : 0;
-                this._HoTen = dr["NhanVienID"] != null ? dr["NhanVienID"].ToString() : null;
-                this._SDT = dr["SDT"] != null ? dr["SDT"].ToString() : null;
-                this._DiaChi = dr["DiaChi"] != null ? dr["DiaChi"].ToString() : null;
-                this._Email = dr["Email"] != null ? dr["Email"].ToString() : null;
-                this._GioiTinh = dr["GioiTinh"] != null ? (bool)dr["GioiTinh"] : false;
+                this._NhanVienID = dr.Table.Columns.Contains("NhanVienID") ? dr.Field<int>("NhanVienID") : -1;
+                this._HoTen = dr.Table.Columns.Contains("HoTen")? dr.Field<string>("HoTen"): null;
+                this._SDT = dr.Table.Columns.Contains("SDT") ? dr.Field<string>("SDT") : null;
+                this._DiaChi = dr.Table.Columns.Contains("DiaChi") ? dr.Field<string>("DiaChi") : null;
+                this._Email = dr.Table.Columns.Contains("Email") ? dr.Field<string>("Email") : null;
+                this._GioiTinh = dr.Table.Columns.Contains("GioiTinh") ? dr.Field<bool?>("GioiTinh") : null;
             }
             catch (Exception ex)
             {

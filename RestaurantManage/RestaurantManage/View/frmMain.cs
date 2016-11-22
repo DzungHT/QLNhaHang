@@ -32,6 +32,9 @@ namespace RestaurantManage.View
         public frmMain()
         {
             InitializeComponent();
+            //frmLogin login = new frmLogin();
+            //login.Callback += LoadStatusStrip;
+            //login.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,9 +48,7 @@ namespace RestaurantManage.View
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //frmLogin login = new frmLogin();
-            //login.Callback += LoadStatusStrip;
-            //login.ShowDialog();
+            
         }
 
         public void LoadStatusStrip(NhanVien nhanVien, string username)
