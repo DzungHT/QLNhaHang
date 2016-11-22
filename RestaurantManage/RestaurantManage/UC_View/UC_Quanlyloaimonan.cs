@@ -19,7 +19,6 @@ namespace RestaurantManage.UC_View
         public UC_Quanlyloaimonan()
         {
             InitializeComponent();
-            _obj = new LoaiMonAn();
             _sitem = new SearchItem();
             this.LoadDS();
             InitDataBinding();
@@ -37,7 +36,7 @@ namespace RestaurantManage.UC_View
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            _obj = new LoaiMonAn();
+            this.RefreshForm();
             txtTenloai.Enabled = true;
             txtMota.Enabled = true;
             btnLuu.Enabled = true;
@@ -53,6 +52,7 @@ namespace RestaurantManage.UC_View
                 return;
             }
             lblThongbao.Visible = false;
+            btnLuu.Enabled = true;
             txtTenloai.Enabled = true;
             txtMota.Enabled = true;
         }
@@ -68,7 +68,6 @@ namespace RestaurantManage.UC_View
             if (sv.LoaiMonAn_Delete(_obj.LoaiMonAnID))
             {
                 MessageBox.Show("Xóa thành công!");
-                _obj = new LoaiMonAn();
                 this.HideText();
                 this.LoadDS();
                 this.LoadSearch();
@@ -90,22 +89,21 @@ namespace RestaurantManage.UC_View
             }
             else
             {
-                MessageBox.Show(_obj.TenLoaiMonAN + "," + _obj.MoTa);
-                //lblThongbao.Visible = false;
-                //if (_obj.LoaiMonAnID == 0)
-                //{
-                //    if (!sv.LoaiMonAn_Insert(_obj.TenLoaiMonAN, _obj.MoTa))
-                //        MessageBox.Show("Thêm thất bại.");
-                //    MessageBox.Show("Thêm thành công.");
-                //}
-                //else
-                //{
-                //    if (!sv.LoaiMonAn_Update(_obj.LoaiMonAnID, _obj.TenLoaiMonAN, _obj.MoTa))
-                //        MessageBox.Show("Sửa thất bại");
-                //    MessageBox.Show("Sửa thành công.");
-                //}
+                lblThongbao.Visible = false;
+                if (_obj.LoaiMonAnID == 0)
+                {
+                    if (!sv.LoaiMonAn_Insert(_obj.TenLoaiMonAN, _obj.MoTa))
+                        MessageBox.Show("Thêm thất bại.");
+                    MessageBox.Show("Thêm thành công.");
+                }
+                else
+                {
+                    if (!sv.LoaiMonAn_Update(_obj.LoaiMonAnID, _obj.TenLoaiMonAN, _obj.MoTa))
+                        MessageBox.Show("Sửa thất bại");
+                    MessageBox.Show("Sửa thành công.");
+                }
             }
-            _obj = new LoaiMonAn();
+            this.RefreshForm();
             this.HideText();
             this.HideButtom();
             this.LoadDS();
@@ -114,7 +112,6 @@ namespace RestaurantManage.UC_View
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            _obj = new LoaiMonAn();
             this.HideText();
             this.HideButtom();
         }
@@ -124,18 +121,27 @@ namespace RestaurantManage.UC_View
             this.LoadSearch();
         }
 
-        private void dgvDS_Timkiem_SelectionChanged(object sender, EventArgs e)
+        private void dgvDS_Timkiem_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            var loaimonanid = (int)dgvDS_Timkiem.SelectedRows[0].Cells["LoaiMonAnID"].Value;
+            DataTable dt = sv.LoaiMonAn_Chitiet(loaimonanid);
+            txtID.Text = dt.Rows[0]["LoaiMonAnID"].ToString();
+            txtTenloai.Text = dt.Rows[0]["TenLoaiMonAn"].ToString();
+            txtMota.Text = dt.Rows[0]["MoTa"].ToString();
         }
 
-        private void dgvDS_Loaimonan_SelectionChanged(object sender, EventArgs e)
+        private void dgvDS_Loaimonan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            var loaimonanid = (int)dgvDS_Loaimonan.SelectedRows[0].Cells["LoaiMonAnID"].Value;
+            DataTable dt= sv.LoaiMonAn_Chitiet(loaimonanid);
+            txtID.Text = dt.Rows[0]["LoaiMonAnID"].ToString();
+            txtTenloai.Text= dt.Rows[0]["TenLoaiMonAn"].ToString();
+            txtMota.Text= dt.Rows[0]["MoTa"].ToString();
         }
-
-        
-
         #region Hàm hỗ trợ
         private void ShowTimkiem()
         {
@@ -147,6 +153,7 @@ namespace RestaurantManage.UC_View
         }
         private void InitDataBinding()
         {
+            _obj = new LoaiMonAn();
             Binding bind = new Binding("Text", _obj, "TenLoaiMonAn", true, DataSourceUpdateMode.OnPropertyChanged);
             Binding bind1 = new Binding("Text", _obj,"LoaiMonAnID", true, DataSourceUpdateMode.OnPropertyChanged);
             Binding bind2 = new Binding("Text", _obj, "MoTa", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -159,7 +166,6 @@ namespace RestaurantManage.UC_View
             txtLoaitimkiem.DataBindings.Add(bind3);
             txtNoidungtimkiem.DataBindings.Add(bind4);
         }
-
         private void LoadDS()
         {
             dgvDS_Loaimonan.DataSource = sv.DS_LoaiMonAN("", "", false);
@@ -180,6 +186,14 @@ namespace RestaurantManage.UC_View
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
         }
+        private void RefreshForm()
+        {
+            txtID.Text = "0";
+            txtMota.Text = "";
+            txtTenloai.Text = "";
+        }
         #endregion
+
+
     }
 }

@@ -19,9 +19,12 @@ namespace RestaurantServices.Business
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_LoaiMonAn_Search";
+            if (searchtype == null) searchtype = "-1";
+            if (searchcontent == null) searchcontent = "";
             if (!isSearch || searchtype.Contains("Tất cả"))
             {
-                searchtype = searchcontent = "";
+                searchtype = "-1";
+                
             }
             else
             {
@@ -40,7 +43,7 @@ namespace RestaurantServices.Business
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            if (dt.Rows.Count == 1)
+            if (dt.Rows.Count >0)
             {
                 dt.TableName = "DS_LoaiMonAn";
                 return dt;
@@ -80,6 +83,7 @@ namespace RestaurantServices.Business
             cmd.Parameters.Add(new SqlParameter("loaimonanid", id));
             cmd.Parameters.Add(new SqlParameter("tenloaimonan", ten));
             cmd.Parameters.Add(new SqlParameter("mota", mota));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -88,6 +92,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Close();
         }
         public bool Delete(int id)
         {
@@ -97,6 +102,7 @@ namespace RestaurantServices.Business
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_LoaiMonAn_Delete";
             cmd.Parameters.Add(new SqlParameter("loaimonanid", id));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -105,6 +111,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Close();
         }
     }
 }

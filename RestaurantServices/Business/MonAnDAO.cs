@@ -18,9 +18,11 @@ namespace RestaurantServices.Business
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_MonAn_Search";
+            if (searchtype == null) searchtype = "-1";
+            if (searchcontent == null) searchcontent = "";
             if (!isSearch || searchtype.Contains("Tất cả"))
             {
-                searchtype = searchcontent = "";
+                searchtype = "-1";
             }
             else
             {
@@ -39,7 +41,7 @@ namespace RestaurantServices.Business
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            if (dt.Rows.Count == 1)
+            if (dt.Rows.Count > 0)
             {
                 dt.TableName = "DS_MonAn";
                 return dt;
@@ -62,6 +64,7 @@ namespace RestaurantServices.Business
             cmd.Parameters.Add(new SqlParameter("loaimonanid", loaiid));
             cmd.Parameters.Add(new SqlParameter("soluongton", soluongton));
             cmd.Parameters.Add(new SqlParameter("tontoithieu", toithieu));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -70,6 +73,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
         public bool Update(int id,string ten, string donvi, int dongia, int loaiid, int soluongton, string toithieu)
         {
@@ -77,7 +81,7 @@ namespace RestaurantServices.Business
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "sp_MonAn_Insert";
+            cmd.CommandText = "sp_MonAn_Update";
             cmd.Parameters.Add(new SqlParameter("monanid", id));
             cmd.Parameters.Add(new SqlParameter("tenmonan", ten));
             cmd.Parameters.Add(new SqlParameter("donvitinh", donvi));
@@ -85,6 +89,7 @@ namespace RestaurantServices.Business
             cmd.Parameters.Add(new SqlParameter("loaimonanid", loaiid));
             cmd.Parameters.Add(new SqlParameter("soluongton", soluongton));
             cmd.Parameters.Add(new SqlParameter("tontoithieu", toithieu));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -93,6 +98,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
         public bool Delete(int id)
         {
@@ -102,6 +108,7 @@ namespace RestaurantServices.Business
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_MonAn_Delete";
             cmd.Parameters.Add(new SqlParameter("monanid", id));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -110,6 +117,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
     }
 }

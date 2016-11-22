@@ -38,9 +38,6 @@
             this.panelTimkiem = new System.Windows.Forms.Panel();
             this.groupbox3 = new System.Windows.Forms.GroupBox();
             this.dgvDS_Timkiem = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTimkiem = new System.Windows.Forms.Button();
             this.txtNoidungtimkiem = new System.Windows.Forms.TextBox();
             this.txtLoaitimkiem = new System.Windows.Forms.ComboBox();
@@ -63,9 +60,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvDS_Loaimonan = new System.Windows.Forms.DataGridView();
-            this.LoaiMonAnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoaiMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTimkiem.SuspendLayout();
             this.groupbox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDS_Timkiem)).BeginInit();
@@ -119,6 +113,9 @@
             // 
             // dgvDS_Timkiem
             // 
+            this.dgvDS_Timkiem.AllowUserToAddRows = false;
+            this.dgvDS_Timkiem.AllowUserToDeleteRows = false;
+            this.dgvDS_Timkiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,10 +125,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDS_Timkiem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDS_Timkiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDS_Timkiem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +136,7 @@
             this.dgvDS_Timkiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDS_Timkiem.Location = new System.Drawing.Point(3, 16);
             this.dgvDS_Timkiem.Name = "dgvDS_Timkiem";
+            this.dgvDS_Timkiem.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,23 +148,7 @@
             this.dgvDS_Timkiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDS_Timkiem.Size = new System.Drawing.Size(340, 93);
             this.dgvDS_Timkiem.TabIndex = 0;
-            this.dgvDS_Timkiem.SelectionChanged += new System.EventHandler(this.dgvDS_Timkiem_SelectionChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Loại món ăn ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên loại món ăn";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Mô tả";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dgvDS_Timkiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDS_Timkiem_CellClick);
             // 
             // btnTimkiem
             // 
@@ -396,6 +374,9 @@
             // 
             // dgvDS_Loaimonan
             // 
+            this.dgvDS_Loaimonan.AllowUserToAddRows = false;
+            this.dgvDS_Loaimonan.AllowUserToDeleteRows = false;
+            this.dgvDS_Loaimonan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -405,10 +386,6 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDS_Loaimonan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDS_Loaimonan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDS_Loaimonan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LoaiMonAnID,
-            this.TenLoaiMonAn,
-            this.MoTa});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,6 +397,7 @@
             this.dgvDS_Loaimonan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDS_Loaimonan.Location = new System.Drawing.Point(3, 16);
             this.dgvDS_Loaimonan.Name = "dgvDS_Loaimonan";
+            this.dgvDS_Loaimonan.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -431,23 +409,7 @@
             this.dgvDS_Loaimonan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDS_Loaimonan.Size = new System.Drawing.Size(352, 252);
             this.dgvDS_Loaimonan.TabIndex = 0;
-            this.dgvDS_Loaimonan.SelectionChanged += new System.EventHandler(this.dgvDS_Loaimonan_SelectionChanged);
-            // 
-            // LoaiMonAnID
-            // 
-            this.LoaiMonAnID.HeaderText = "Loại món ăn ID";
-            this.LoaiMonAnID.Name = "LoaiMonAnID";
-            // 
-            // TenLoaiMonAn
-            // 
-            this.TenLoaiMonAn.HeaderText = "Tên loại món ăn";
-            this.TenLoaiMonAn.Name = "TenLoaiMonAn";
-            // 
-            // MoTa
-            // 
-            this.MoTa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MoTa.HeaderText = "Mô tả";
-            this.MoTa.Name = "MoTa";
+            this.dgvDS_Loaimonan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDS_Loaimonan_CellClick);
             // 
             // UC_Quanlyloaimonan
             // 
@@ -508,11 +470,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvDS_Loaimonan;
         private System.Windows.Forms.RichTextBox txtMota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiMonAnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiMonAn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

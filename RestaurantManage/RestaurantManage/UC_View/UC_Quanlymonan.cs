@@ -19,7 +19,6 @@ namespace RestaurantManage.UC_View
         public UC_Quanlymonan()
         {
             InitializeComponent();
-            _obj = new MonAn();
             _sitem = new SearchItem();
             this.LoadDS();
             InitDataBinding();
@@ -37,8 +36,8 @@ namespace RestaurantManage.UC_View
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            _obj = new MonAn();
-            txtTenmonan.Enabled = true;
+            this.RefreshForm();
+            this.ShowText();
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
         }
@@ -52,7 +51,9 @@ namespace RestaurantManage.UC_View
                 return;
             }
             lblThongbao.Visible = false;
-            txtTenmonan.Enabled = true;
+            btnLuu.Enabled = true;
+            btnHuy.Enabled = true;
+            this.ShowText();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -66,8 +67,8 @@ namespace RestaurantManage.UC_View
             if (sv.MonAn_Delete(_obj.MonAnID))
             {
                 MessageBox.Show("Xóa thành công!");
-                _obj = new MonAn();
                 this.HideText();
+                this.RefreshForm();
                 this.LoadDS();
                 this.LoadSearch();
                 this.HideButtom();
@@ -82,27 +83,27 @@ namespace RestaurantManage.UC_View
         {
             if (_obj.TenMonAn == "")
             {
-                lblThongbao.Text = "Vui lòng điền tên món ăn";
+                lblThongbao.Text = "Vui lòng điền tên loại món ăn";
                 lblThongbao.Visible = true;
                 return;
             }
             else
             {
                 lblThongbao.Visible = false;
-                if (_obj.MonAnID == 0)
+                if (txtID.Text == "0")
                 {
-                    if (!sv.MonAn_Insert(_obj.TenMonAn,_obj.DonViTinh,_obj.DonGia,_obj.LoaiMonAnID,_obj.SoLuongTon,_obj.TonToiThieu))
+                    if (!sv.MonAn_Insert(_obj.TenMonAn, _obj.DonViTinh, _obj.DonGia, int.Parse(txtLoaimonan.SelectedValue.ToString()), 0, "0"))
                         MessageBox.Show("Thêm thất bại.");
                     MessageBox.Show("Thêm thành công.");
                 }
                 else
                 {
-                    if (!sv.MonAn_Update(_obj.MonAnID,_obj.TenMonAn, _obj.DonViTinh, _obj.DonGia, _obj.LoaiMonAnID, _obj.SoLuongTon, _obj.TonToiThieu))
+                    if (!sv.MonAn_Update(_obj.MonAnID,_obj.TenMonAn, _obj.DonViTinh, _obj.DonGia, int.Parse(txtLoaimonan.SelectedValue.ToString()), 0, "0"))
                         MessageBox.Show("Sửa thất bại");
                     MessageBox.Show("Sửa thành công.");
                 }
             }
-            _obj = new MonAn();
+            this.RefreshForm();
             this.HideText();
             this.HideButtom();
             this.LoadDS();
@@ -111,7 +112,6 @@ namespace RestaurantManage.UC_View
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            _obj = new MonAn();
             this.HideText();
             this.HideButtom();
         }
@@ -120,18 +120,34 @@ namespace RestaurantManage.UC_View
         {
             this.LoadSearch();
         }
-
-        private void dgvDS_Timkiem_SelectionChanged(object sender, EventArgs e)
+        private void dgvDS_Timkiem_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            var monanid = (int)dgvDS_Timkiem.SelectedRows[0].Cells["MonAnID"].Value;
+            DataTable dt = sv.MonAn_Chitiet(monanid);
+            txtID.Text = dt.Rows[0]["MonAnID"].ToString();
+            txtDongia.Text = dt.Rows[0]["DonGia"].ToString();
+            txtDonvitinh.Text = dt.Rows[0]["DonViTinh"].ToString();
+            txtTenmonan.Text = dt.Rows[0]["TenMonAn"].ToString();
+            this.Loadloaimonan();
+            txtLoaimonan.SelectedValue = dt.Rows[0]["LoaiMonAnID"].ToString();
         }
 
-        private void dgvDS_Monan_SelectionChanged(object sender, EventArgs e)
+        private void dgvDS_Monan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
+            var loaimonanid = (int)dgvDS_Monan.SelectedRows[0].Cells["MonAnID"].Value;
+            DataTable dt = sv.MonAn_Chitiet(loaimonanid);
+            txtID.Text = dt.Rows[0]["MonAnID"].ToString();
+            txtDongia.Text = dt.Rows[0]["DonGia"].ToString();
+            txtDonvitinh.Text = dt.Rows[0]["DonViTinh"].ToString();
+            txtTenmonan.Text = dt.Rows[0]["TenMonAn"].ToString();
+            this.Loadloaimonan();
+            txtLoaimonan.SelectedValue= dt.Rows[0]["LoaiMonAnID"].ToString();
 
         }
-
-        
         #region Hàm hỗ trợ
         private void ShowTimkiem()
         {
@@ -143,28 +159,24 @@ namespace RestaurantManage.UC_View
         }
         private void InitDataBinding()
         {
+            _obj = new MonAn();
             Binding bind = new Binding("Text", _obj, "MonAnID", true, DataSourceUpdateMode.OnPropertyChanged);
             Binding bind1 = new Binding("Text", _obj, "TenMonAn", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind2 = new Binding("Text", _obj, "DonViTinh", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind5 = new Binding("Text", _obj, "DonGia", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind6 = new Binding("Text", _obj, "LoaiMonAnID", true, DataSourceUpdateMode.OnPropertyChanged);
-            Binding bind7 = new Binding("Text", _obj, "SoLuongTon", true, DataSourceUpdateMode.OnPropertyChanged);
+            Binding bind5 = new Binding("Text", _obj, "DonViTinh", true, DataSourceUpdateMode.OnPropertyChanged);
+            Binding bind6 = new Binding("Text", _obj, "DonGia", true, DataSourceUpdateMode.OnPropertyChanged);
             txtID.DataBindings.Add(bind);
             txtTenmonan.DataBindings.Add(bind1);
-            txtDonvitinh.DataBindings.Add(bind2);
-            txtDongia.DataBindings.Add(bind5);
-            //txtLoaimonan.
-            txtSoluongton.DataBindings.Add(bind7);
-
+            txtDonvitinh.DataBindings.Add(bind5);
+            txtDongia.DataBindings.Add(bind6);
+            this.Loadloaimonan();
             Binding bind3 = new Binding("Text", _sitem, "SearchType", true, DataSourceUpdateMode.OnPropertyChanged);
             Binding bind4 = new Binding("Text", _sitem, "SearchContent", true, DataSourceUpdateMode.OnPropertyChanged);
             txtLoaitimkiem.DataBindings.Add(bind3);
             txtNoidungtimkiem.DataBindings.Add(bind4);
         }
-
         private void LoadDS()
         {
-            dgvDS_Monan.DataSource = sv.DS_MonAn("","",false);
+            dgvDS_Monan.DataSource = sv.DS_MonAn("", "", false);
         }
         private void LoadSearch()
         {
@@ -172,7 +184,17 @@ namespace RestaurantManage.UC_View
         }
         private void HideText()
         {
+            txtDongia.Enabled = false;
+            txtDonvitinh.Enabled = false;
             txtTenmonan.Enabled = false;
+            txtLoaimonan.Enabled = false;
+        }
+        private void ShowText()
+        {
+            txtDongia.Enabled = true;
+            txtDonvitinh.Enabled = true;
+            txtTenmonan.Enabled = true;
+            txtLoaimonan.Enabled = true;
         }
         private void HideButtom()
         {
@@ -181,6 +203,23 @@ namespace RestaurantManage.UC_View
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
         }
+        private void RefreshForm()
+        {
+            txtID.Text = "0";
+            txtDongia.Text = "";
+            txtDonvitinh.Text = "";
+            txtTenmonan.Text = "";
+            this.Loadloaimonan();
+        }
+        private void Loadloaimonan()
+        {
+            txtLoaimonan.DataSource = sv.DS_LoaiMonAN("", "", false);
+            txtLoaimonan.ValueMember = "LoaiMonAnID";
+            txtLoaimonan.DisplayMember = "TenLoaiMonAn";
+            txtLoaimonan.SelectedIndex = 0;
+        }
         #endregion
+
+
     }
 }

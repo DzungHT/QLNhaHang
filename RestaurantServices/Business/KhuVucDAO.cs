@@ -18,9 +18,11 @@ namespace RestaurantServices.Business
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_KhuVuc_Search";
+            if (searchtype == null) searchtype = "-1";
+            if (searchcontent == null) searchcontent = "";
             if (!isSearch || searchtype.Contains("Tất cả"))
             {
-                searchtype = searchcontent = "";
+                searchtype = "-1";
             }
             else
             {
@@ -39,7 +41,7 @@ namespace RestaurantServices.Business
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            if (dt.Rows.Count == 1)
+            if (dt.Rows.Count >0)
             {
                 dt.TableName = "DS_KhuVuc";
                 return dt;
@@ -58,6 +60,7 @@ namespace RestaurantServices.Business
             cmd.CommandText = "sp_KhuVuc_Insert";
             cmd.Parameters.Add(new SqlParameter("tenkhuvuc", ten));
             cmd.Parameters.Add(new SqlParameter("mota", mota));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -66,6 +69,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
         public bool Update(int id, string ten, string mota)
         {
@@ -77,6 +81,7 @@ namespace RestaurantServices.Business
             cmd.Parameters.Add(new SqlParameter("khuvucid", id));
             cmd.Parameters.Add(new SqlParameter("tenkhuvuc", ten));
             cmd.Parameters.Add(new SqlParameter("mota", mota));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -85,6 +90,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
         public bool Delete(int id)
         {
@@ -94,6 +100,7 @@ namespace RestaurantServices.Business
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = "sp_KhuVuc_Delete";
             cmd.Parameters.Add(new SqlParameter("khuvucid", id));
+            con.Open();
             if (cmd.ExecuteNonQuery() == 1)
             {
                 return true;
@@ -102,6 +109,7 @@ namespace RestaurantServices.Business
             {
                 return false;
             }
+            con.Open();
         }
     }
 }
