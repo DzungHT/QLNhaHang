@@ -100,14 +100,16 @@
             // loạiMónĂnToolStripMenuItem
             // 
             this.loạiMónĂnToolStripMenuItem.Name = "loạiMónĂnToolStripMenuItem";
-            this.loạiMónĂnToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.loạiMónĂnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loạiMónĂnToolStripMenuItem.Text = "Loại món ăn";
+            this.loạiMónĂnToolStripMenuItem.Click += new System.EventHandler(this.loạiMónĂnToolStripMenuItem_Click);
             // 
             // mónĂnToolStripMenuItem
             // 
             this.mónĂnToolStripMenuItem.Name = "mónĂnToolStripMenuItem";
-            this.mónĂnToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.mónĂnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mónĂnToolStripMenuItem.Text = "Món ăn";
+            this.mónĂnToolStripMenuItem.Click += new System.EventHandler(this.mónĂnToolStripMenuItem_Click);
             // 
             // bànĂnToolStripMenuItem
             // 
@@ -123,12 +125,14 @@
             this.khuVựcBànĂnToolStripMenuItem.Name = "khuVựcBànĂnToolStripMenuItem";
             this.khuVựcBànĂnToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.khuVựcBànĂnToolStripMenuItem.Text = "Khu vực bàn ăn";
+            this.khuVựcBànĂnToolStripMenuItem.Click += new System.EventHandler(this.khuVựcBànĂnToolStripMenuItem_Click);
             // 
             // bănĂnToolStripMenuItem
             // 
             this.bănĂnToolStripMenuItem.Name = "bănĂnToolStripMenuItem";
             this.bănĂnToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.bănĂnToolStripMenuItem.Text = "Băn ăn";
+            this.bănĂnToolStripMenuItem.Text = "Bàn ăn";
+            this.bănĂnToolStripMenuItem.Click += new System.EventHandler(this.bănĂnToolStripMenuItem_Click);
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -142,13 +146,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Thoát";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 

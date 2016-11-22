@@ -75,5 +75,37 @@ namespace RestaurantManage.View
             panel1.Controls.Add(uc);
             uc.Dock = DockStyle.Fill;
         }
+
+        private void loạiMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlyloaimonan uc = new UC_View.UC_Quanlyloaimonan();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void mónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlymonan uc = new UC_View.UC_Quanlymonan();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void khuVựcBànĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlykhuvuc uc = new UC_View.UC_Quanlykhuvuc();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
+
+        private void bănĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_Quanlybanan uc = new UC_View.UC_Quanlybanan();
+            panel1.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+        }
     }
 }
