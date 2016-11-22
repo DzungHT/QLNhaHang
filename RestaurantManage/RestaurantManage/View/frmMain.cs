@@ -45,9 +45,9 @@ namespace RestaurantManage.View
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            frmLogin login = new frmLogin();
-            login.Callback += LoadStatusStrip;
-            login.ShowDialog();
+            //frmLogin login = new frmLogin();
+            //login.Callback += LoadStatusStrip;
+            //login.ShowDialog();
         }
 
         public void LoadStatusStrip(NhanVien nhanVien, string username)
@@ -56,6 +56,14 @@ namespace RestaurantManage.View
             this.Username = username;
             toolStripStatusLabel2.Text = Username;
             toolStripStatusLabel5.Text = NhanVien.HoTen;
+        }
+
+        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UC_View.UC_BanHang ucBanHang = new UC_View.UC_BanHang();
+            panel1.Controls.Add(ucBanHang);
+            ucBanHang.Dock = DockStyle.Fill;
         }
     }
 }
